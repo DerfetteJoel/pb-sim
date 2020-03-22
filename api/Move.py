@@ -32,34 +32,5 @@ class Move:
             self.type = "normal"
         self.current_pp = self.pp
 
-    # ========== GETTER & SETTER FUNCTIONS =============================================================================
-
-    def get_name(self):
-        return self.name
-
-    def get_accuracy(self):
-        return self.accuracy
-
-    def get_power(self):
-        return self.power
-
-    def get_pp(self):
-        return self.pp
-
-    def get_effect_chance(self):
-        return self.effect_chance
-
-    def get_priority(self):
-        return self.priority
-
-    def get_damage_class(self):
-        return self.damage_class
-
-    def get_type(self):
-        return self.type
-
-    def get_current_pp(self):
-        return self.current_pp
-
     def set_current_pp(self, value):
         self.current_pp = value if value <= self.pp else self.pp

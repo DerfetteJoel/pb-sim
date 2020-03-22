@@ -31,36 +31,13 @@ class Pokemon:
         self.current_stats = [0, 0, 0, 0, 0, 0]  # for use in battle
         self.moves = []
 
-    # ========== GETTER & SETTER FUNCTIONS =============================================================================
-
-    def get_name(self):
-        return self.name
-
-    def get_level(self):
-        return self.level
-
     def set_level(self, level):
         self.level = level
         self.calculate_stats()
 
-    def get_basestat(self, index):
-        return self.base_stats[index]
-
-    def get_basestats(self):
-        return self.base_stats
-
-    def get_types(self):
-        return self.types
-
-    def get_ivs(self):
-        return self.ivs
-
     def set_ev(self, index, value):
         self.evs[index] = value
         self.calculate_stats()
-
-    def get_stats(self):
-        return self.stats
 
     # ========== FUNCTIONS FOR CALCULATING & GENERATING ================================================================
 
