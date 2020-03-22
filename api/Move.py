@@ -34,3 +34,6 @@ class Move:
 
     def set_current_pp(self, value):
         self.current_pp = value if value <= self.pp else self.pp
+
+    def refill_pp(self):
+        self.current_pp = self.pp
