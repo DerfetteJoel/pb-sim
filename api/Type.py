@@ -61,7 +61,7 @@ class Type:
             self.double_damage_from = ["fighting", "ground", "fire"]
             self.double_damage_to = ["rock", "ice", "fairy"]
             self.half_damage_from = ["normal", "flying", "rock", "bug", "steel", "grass", "psychic", "ice", "dragon",
-                                "fairy"]
+                                     "fairy"]
             self.half_damage_to = ["steel", "fire", "water", "electric"]
             self.no_damage_from = ["poison"]
             self.no_damage_to = []
@@ -130,10 +130,12 @@ class Type:
             self.no_damage_to = []
         elif name == "stellar":
             self.double_damage_from = []
-            self.double_damage_to = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel",
-                                "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"]
-            self.half_damage_from = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel",
-                                "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"]
+            self.double_damage_to = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost",
+                                     "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark",
+                                     "fairy"]
+            self.half_damage_from = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost",
+                                     "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark",
+                                     "fairy"]
             self.half_damage_to = []
             self.no_damage_from = []
             self.no_damage_to = []
