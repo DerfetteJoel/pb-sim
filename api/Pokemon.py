@@ -65,7 +65,6 @@ class Pokemon:
 
     # ========== FUNCTIONS FOR CALCULATING & GENERATING ================================================================
 
-    # TODO use natures in calculate_stats
     def calculate_stats(self):
         self.stats[0] = math.floor(
             ((2 * self.base_stats[0] + self.ivs[0] + math.floor(self.evs[0] / 4)) * self.level) / 100) + self.level + 10
