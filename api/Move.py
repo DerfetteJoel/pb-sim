@@ -14,7 +14,7 @@ class Move:
             raw = 0
         if raw != 0:
             self.id = raw.id
-            self.name = raw.name.capitalize()
+            self.name = raw.name.replace("-", " ").title()
             self.accuracy = raw.accuracy
             self.power = raw.power
             self.pp = raw.pp

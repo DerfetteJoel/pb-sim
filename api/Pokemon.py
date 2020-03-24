@@ -17,7 +17,7 @@ class Pokemon:
 
         if raw != 0:
             self.id = raw.id
-            self.name = raw.name.capitalize()
+            self.name = raw.name.replace("-", " ").title()
             self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
                                raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
             self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
