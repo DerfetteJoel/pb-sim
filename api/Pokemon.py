@@ -114,8 +114,6 @@ class Pokemon:
             print("It doesn't affect the opposing " + other.name + "...")
         damage = math.floor(damage)
         if damage > other.current_stats[0]: damage = other.current_stats[0]
-        print("The opposing " + other.name + " lost " + str(math.floor((
-                                                                               damage / other.stats[
-                                                                           0]) * 100)) + "% (" + str(
-            damage) + " HP) of its health!")
+        print("The opposing " + other.name + " lost "
+              + str(math.floor((damage / other.stats[0]) * 100)) + "% (" + str(damage) + " HP) of its health!")
         other.current_stats[0] -= damage
