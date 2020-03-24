@@ -1,6 +1,8 @@
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
 
+from api.Type import Type
+
 
 class Move:
     def __init__(self, name):
@@ -19,7 +21,7 @@ class Move:
             self.effect_chance = raw.effect_chance
             self.priority = raw.priority
             self.damage_class = raw.damage_class.name
-            self.type = raw.type.name
+            self.type = Type(raw.type.name)
         else:
             # If no move in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new moves.

@@ -3,6 +3,8 @@ import random
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
 
+from api.Type import Type
+
 
 class Pokemon:
     def __init__(self, name):
@@ -18,8 +20,8 @@ class Pokemon:
             self.name = raw.name.capitalize()
             self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
                                raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
-            self.types = [raw.types[0].type.name] if len(raw.types) == 1 \
-                else [raw.types[0].type.name, raw.types[1].type.name]
+            self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
+                else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
         else:
             # If no pokemon in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new pokemon.
