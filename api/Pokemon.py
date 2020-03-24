@@ -2,6 +2,7 @@ import math
 import random
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
+from api.Nature import Nature, natures
 from api.Type import Type
 
 
@@ -33,6 +34,7 @@ class Pokemon:
         self.level = 1
         self.ivs = [0, 0, 0, 0, 0, 0]
         self.evs = [0, 0, 0, 0, 0, 0]
+        self.nature = Nature("hardy")
         self.stats = [0, 0, 0, 0, 0, 0]
         self.moves = []
         # Values that are needed in battle
@@ -57,6 +59,10 @@ class Pokemon:
         for x in range(1, 6):
             self.stats[x] = math.floor(
                 (((2 * self.base_stats[x] + self.ivs[x] + math.floor(self.evs[x] / 4)) * self.level) / 100) + 5)
+            if x == self.nature.increased_stat:
+                self.stats[x] = math.floor(self.stats[x] * 1.1)
+            elif x == self.nature.decreased_stat:
+                self.stats[x] = math.floor(self.stats[x] * 0.9)
 
     # Randomly generates all IVs for a pokemon
     def generate_ivs(self):
@@ -64,9 +70,14 @@ class Pokemon:
             self.ivs[x] = random.randint(0, 31)
         self.calculate_stats()
 
+    # Randomly generate a nature
+    def generate_nature(self):
+        self.nature = Nature(natures[random.randint(0, len(natures) - 1)])
+
     # All-In-One method for generating all required values for a new pokemon
     def generate(self):
         self.generate_ivs()
+        self.generate_nature()
         self.calculate_stats()
         self.heal()
 
