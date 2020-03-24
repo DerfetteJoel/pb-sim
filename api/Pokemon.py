@@ -50,6 +50,19 @@ class Pokemon:
         self.evs[index] = value
         self.calculate_stats()
 
+    # Print formatted information about the Pokemon species on the screen
+    def print(self):
+        print("_" * 56)
+        types = self.types[0].name.capitalize()
+        if len(self.types) > 1: types += (", " + self.types[1].name.capitalize())
+        print('{:<20} {:>35}'.format(self.name, types))
+        print("\nBase Stats:")
+        for stat in self.base_stats:
+            i = math.ceil(stat / 10) * 2
+            print("█" * i + "░" * (52 - i) + " " + str(stat))
+        print("Total: " + str(sum(self.base_stats)))
+        print('_' * 56)
+
     # ========== FUNCTIONS FOR CALCULATING & GENERATING ================================================================
 
     # TODO use natures in calculate_stats
