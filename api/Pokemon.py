@@ -26,7 +26,7 @@ class Pokemon:
             # If no pokemon in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new pokemon.
             self.id = -1  # Will be overwritten once saved
-            self.name = name
+            self.name = name.replace("-", " ").title()
             self.base_stats = base_stats
             self.types = types
 
