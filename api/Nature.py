@@ -2,11 +2,13 @@ Natures = {"hardy", "bold", "modest", "calm", "timid", "lonely", "docile", "mild
            "impish", "bashful", "careful", "jolly", "naughty", "lax", "rash", "quirky", "naive", "brave", "relaxed",
            "quiet", "sassy", "serious"}
 
+
 class Nature:
     def __init__(self, name):
         if name in Natures:
             self.name = name
-        else: self.name = "hardy"
+        else:
+            self.name = "hardy"
         if self.name == "hardy":
             self.decreased_stat = None
             self.increased_stat = None
