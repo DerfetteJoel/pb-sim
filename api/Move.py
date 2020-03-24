@@ -21,6 +21,8 @@ class Move:
             self.damage_class = raw.damage_class.name
             self.type = raw.type.name
         else:
+            # If no move in the database matched the request, these values have to be set manually.
+            # This gives the user the ability to create completely new moves.
             self.id = -1  # TODO automatic indexing system
             self.name = name
             self.accuracy = 100
@@ -30,6 +32,7 @@ class Move:
             self.priority = 0
             self.damage_class = "physical"
             self.type = "normal"
+
         self.current_pp = self.pp
 
     def set_current_pp(self, value):
