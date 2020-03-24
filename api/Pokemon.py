@@ -7,7 +7,7 @@ from api.Type import Type
 
 
 class Pokemon:
-    def __init__(self, name):
+    def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")]):
         client = pokepy.V2Client()
         try:
             raw = client.get_pokemon(name)
@@ -25,10 +25,10 @@ class Pokemon:
         else:
             # If no pokemon in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new pokemon.
-            self.id = -1  # TODO automatic indexing system
+            self.id = -1  # Will be overwritten once saved
             self.name = name
-            self.base_stats = [0, 0, 0, 0, 0, 0]
-            self.types = [Type("normal")]
+            self.base_stats = base_stats
+            self.types = types
 
         # These are values that can be different for each pokemon of a species
         self.level = 1
