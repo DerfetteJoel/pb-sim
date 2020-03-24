@@ -9,7 +9,7 @@ class Type:
             self.no_damage_from = ["ghost"]
             self.no_damage_to = ["ghost"]
         elif name == "fighting":
-            self.self.double_damage_from = ["flying", "psychic", "fairy"]
+            self.double_damage_from = ["flying", "psychic", "fairy"]
             self.double_damage_to = ["normal", "rock", "steel", "ice", "dark"]
             self.half_damage_from = ["rock", "bug", "dark"]
             self.half_damage_to = ["flying", "poison", "bug", "psychic", "fairy"]
