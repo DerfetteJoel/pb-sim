@@ -1,11 +1,11 @@
-Natures = {"hardy", "bold", "modest", "calm", "timid", "lonely", "docile", "mild", "gentle", "hasty", "adamant",
+natures = ["hardy", "bold", "modest", "calm", "timid", "lonely", "docile", "mild", "gentle", "hasty", "adamant",
            "impish", "bashful", "careful", "jolly", "naughty", "lax", "rash", "quirky", "naive", "brave", "relaxed",
-           "quiet", "sassy", "serious"}
+           "quiet", "sassy", "serious"]
 
 
 class Nature:
     def __init__(self, name):
-        if name in Natures:
+        if name in natures:
             self.name = name
         else:
             self.name = "hardy"

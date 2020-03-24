@@ -2,7 +2,6 @@ import math
 import random
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
-
 from api.Type import Type
 
 
