@@ -42,3 +42,15 @@ class Move:
 
     def refill_pp(self):
         self.current_pp = self.pp
+
+    # Returns the effectiveness of the move against a given Pokemon 'pokemon' as a number between 0 and 2
+    def get_effectivity(self, pokemon):
+        effectivity = 1
+        for _type in pokemon.types:
+            if self.type.name in _type.double_damage_from:
+                effectivity *= 2
+            elif self.type.name in _type.half_damage_from:
+                effectivity /= 2
+            elif self.type.name in _type.no_damage_from:
+                effectivity = 0
+        return effectivity
