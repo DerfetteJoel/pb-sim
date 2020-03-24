@@ -65,9 +65,57 @@ class Pokemon:
             self.ivs[x] = random.randint(0, 31)
         self.calculate_stats()
 
+    # All-In-One method for generating all required values for a new pokemon
+    def generate(self):
+        self.generate_ivs()
+        self.calculate_stats()
+        self.heal()
+
     # ========== FUNCTIONS FOR USE IN & AFTER BATTLE ===================================================================
 
     # Reset all stats
     # TODO reset pokemon status once implemented
     def heal(self):
         self.current_stats = self.stats
+
+    # This method is used to perform an attack against a Pokemon 'other' using the Move 'move'
+    def attack(self, other, move):
+        print(self.name + " used " + move.name + "!")
+        if random.randint(1, 100) > move.accuracy:
+            print("The opposing " + other.name + " avoided the attack!")
+            return
+        damage = math.floor(self.level * 2 / 5) + 2
+        damage *= move.power
+        if move.damage_class == "special":
+            damage *= self.current_stats[3] / (50 * other.current_stats[4])
+        else:
+            damage *= self.current_stats[1] / (50 * other.current_stats[2])
+        damage = math.floor(damage)
+        damage += 2
+        critical = (1.5 if random.randint(1, 100) < 7 else 1)  # Critical chance is set to 6% for now
+        if critical > 1: print("A critical hit!")
+        damage *= critical
+        damage = math.floor(damage)
+        damage *= (random.randint(85, 100) / 100)
+        damage = math.floor(damage)
+        if len(self.types) == 1:
+            if self.types[0].name == move.type.name:
+                damage *= 1.5
+        elif (self.types[0].name == move.type.name) or (self.types[1].name == move.type.name):
+            damage *= 1.5
+        damage = math.floor(damage)
+        effectivity = move.get_effectivity(other)
+        damage *= effectivity
+        if effectivity >= 2:
+            print("It's super effective!")
+        elif effectivity < 1:
+            print("It's not very effective...")
+        elif effectivity == 0:
+            print("It doesn't affect the opposing " + other.name + "...")
+        damage = math.floor(damage)
+        if damage > other.current_stats[0]: damage = other.current_stats[0]
+        print("The opposing " + other.name + " lost " + str(math.floor((
+                                                                               damage / other.stats[
+                                                                           0]) * 100)) + "% (" + str(
+            damage) + " HP) of its health!")
+        other.current_stats[0] -= damage
