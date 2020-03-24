@@ -33,7 +33,7 @@ class Move:
             self.effect_chance = None
             self.priority = 0
             self.damage_class = "physical"
-            self.type = "normal"
+            self.type = Type("normal")
 
         self.current_pp = self.pp
 

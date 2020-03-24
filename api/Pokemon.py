@@ -28,7 +28,7 @@ class Pokemon:
             self.id = -1  # TODO automatic indexing system
             self.name = name
             self.base_stats = [0, 0, 0, 0, 0, 0]
-            self.types = ["normal"]
+            self.types = [Type("normal")]
 
         # These are values that can be different for each pokemon of a species
         self.level = 1
