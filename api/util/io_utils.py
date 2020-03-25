@@ -1,7 +1,7 @@
 import os
 
-from api.pokemon import Pokemon
 from api import pokemon
+from api.pokemon import Pokemon
 from api.type import Type
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname("api" + os.path.sep)))
@@ -17,8 +17,12 @@ def save_custom_pokemon(pokemon, unformatted_name):
     types = pokemon.types[0].name
     if len(pokemon.types) > 1:
         types += "," + pokemon.types[1].name
+    abilities = pokemon.abilities[0]
+    for i in range(1, len(pokemon.abilities)):
+        abilities += "," + pokemon.abilities[i]
     index = 808 + custom_pokemon_count()
-    f.write(str(index) + ";" + unformatted_name + ";" + str(types) + ";" + str(pokemon.base_stats) + ";\n")
+    f.write(str(index) + ";" + unformatted_name + ";" + str(pokemon.base_stats) + ";" + str(types) + ";" + abilities +
+            ";\n")
     print(unformatted_name + " has been saved successfully with id " + str(index) + ".")
     f.close()
 
@@ -28,16 +32,25 @@ def get_all_custom_pokemon():
     print("Reading all custom Pokemon from \"custom/pokemon.data\"...")
     pokemon.enable_log = 0  # Temporarily disable constructor output to avoid spam
     custom_pokemon = {}
-    f = open(os.path.join(root_dir, "custom", "pokemon.data"), "r")
+    try:
+        f = open(os.path.join(root_dir, "custom", "pokemon.data"), "r")
+    except FileNotFoundError:
+        print("No custom Pokemon found.")
+        pokemon.enable_log = 1
+        return
     for x in range(0, custom_pokemon_count()):
         raw = f.readline().split(';')
-        raw_types = []
-        for t in raw[2].split(','):
-            raw_types.append(Type(t))
         raw_base_stats = []
-        for t in raw[3][1:-1].strip().split(','):
+        for t in raw[2][1:-1].strip().split(','):
             raw_base_stats.append(int(t))
+        raw_types = []
+        for t in raw[3].split(','):
+            raw_types.append(Type(t))
+        raw_abilities = []
+        for t in raw[4].split(','):
+            raw_abilities.append(t)
         pkmn = Pokemon(raw[1], raw_base_stats, raw_types, raw[0])
+        pkmn.abilities = raw_abilities
         custom_pokemon[raw[1]] = pkmn
     f.close()
     print("Finished reading custom Pokemon. Found " + str(len(custom_pokemon)) + " Pokemon.")
