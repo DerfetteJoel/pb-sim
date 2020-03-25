@@ -8,7 +8,7 @@ root_dir = os.path.dirname(os.path.abspath(os.path.dirname("api" + os.path.sep))
 
 
 # Saves the pokemon in a sub-folder. Please make sure you use an unformatted name ("lower-case")
-def save_custom_pokemon(pkmn, unformatted_name: str):
+def save_custom_pokemon(pkmn: Pokemon, unformatted_name: str):
     try:
         os.mkdir(os.path.join(root_dir, "custom"))
     except FileExistsError:
@@ -22,8 +22,8 @@ def save_custom_pokemon(pkmn, unformatted_name: str):
     for i in range(1, len(pkmn.abilities)):
         abilities += "," + pkmn.abilities[i]
     index = 808 + custom_pokemon_count()
-    f.write(str(index) + ";" + unformatted_name + ";" + str(pkmn.base_stats) + ";" + str(types) + ";" + abilities +
-            ";\n")
+    f.write(str(index) + ";" + unformatted_name + ";" + str(pkmn.base_stats) + ";" + str(types) + ";" + abilities
+            + ";" + str(pkmn.base_experience) + ";" + pkmn.growth_rate +";\n")
     print(unformatted_name + " has been saved successfully with id " + str(index) + ".")
     f.close()
 
@@ -52,6 +52,8 @@ def get_all_custom_pokemon():
             raw_abilities.append(t)
         pkmn = Pokemon(raw[1], raw_base_stats, raw_types, raw[0])
         pkmn.abilities = raw_abilities
+        pkmn.base_experience = int(raw[5])
+        pkmn.growth_rate = raw[6]
         custom_pokemon[raw[1]] = pkmn
     f.close()
     print("Finished reading custom Pokemon. Found " + str(len(custom_pokemon)) + " Pokemon.")
