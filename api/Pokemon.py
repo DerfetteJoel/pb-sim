@@ -5,30 +5,38 @@ from beckett.exceptions import InvalidStatusCodeError
 from api.Nature import Nature, natures
 from api.Type import Type
 
+# This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
+custom_dict = {}
+
 
 class Pokemon:
-    def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")]):
+    def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
         client = pokepy.V2Client()
         try:
             raw = client.get_pokemon(name)
-        except InvalidStatusCodeError:
-            print("Pokemon not found, creating a new one...")
-            raw = 0
-
-        if raw != 0:
             self.id = raw.id
             self.name = raw.name.replace("-", " ").title()
             self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
                                raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
             self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
                 else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
-        else:
-            # If no pokemon in the database matched the request, these values have to be set manually.
-            # This gives the user the ability to create completely new pokemon.
-            self.id = -1  # Will be overwritten once saved
-            self.name = name.replace("-", " ").title()
-            self.base_stats = base_stats
-            self.types = types
+        except InvalidStatusCodeError:
+            print("Pokemon not found, searching for custom Pokemon...")
+            raw = custom_dict.get(name)
+            if raw is not None:
+                print("Custom Pokemon found!")
+                self.name = raw.name.replace("-", " ").title()
+                self.base_stats = raw.base_stats
+                self.types = raw.types
+                self.id = raw.id
+            else:
+                # If no pokemon in the database matched the request, these values have to be set manually.
+                # This gives the user the ability to create completely new pokemon.
+                print("No custom Pokemon found, creating a new one...")
+                self.id = index
+                self.name = name.replace("-", " ").title()
+                self.base_stats = base_stats
+                self.types = types
 
         # These are values that can be different for each pokemon of a species
         self.level = 1
