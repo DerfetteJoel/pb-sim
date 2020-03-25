@@ -18,6 +18,7 @@ class Pokemon:
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
         client = pokepy.V2Client()
         self.abilities = ["", "", ""]
+        self.moves = []
         raw = None
         try:
             raw = client.get_pokemon(name)
@@ -32,6 +33,8 @@ class Pokemon:
                     self.abilities.insert(a.slot, a.ability.name)
                 self.base_experience = raw.base_experience
                 self.growth_rate = client.get_pokemon_species(name).growth_rate.name
+                for m in raw.moves:
+                    self.moves.append(m.move.name)
         except InvalidStatusCodeError:
             if enable_log: print(name + " not found, searching for custom Pokemon...")
             try:
@@ -68,7 +71,7 @@ class Pokemon:
         self.evs = [0, 0, 0, 0, 0, 0]
         self.nature = Nature("hardy")
         self.stats = [0, 0, 0, 0, 0, 0]
-        self.moves = []
+        self.current_moves = []
         self.current_xp = 0
         # Values that are needed in battle
         self.current_stats = [0, 0, 0, 0, 0, 0]  # newly generated pokemon have to heal once for these values to be set.

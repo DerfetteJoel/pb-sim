@@ -21,9 +21,12 @@ def save_custom_pokemon(pkmn: Pokemon, unformatted_name: str):
     abilities = pkmn.abilities[0]
     for i in range(1, len(pkmn.abilities)):
         abilities += "," + pkmn.abilities[i]
+    moves = pkmn.moves[0] if pkmn.moves else ""
+    for i in range(1, len(pkmn.moves)):
+        moves += "," + pkmn.moves[i]
     index = 808 + custom_pokemon_count()
     f.write(str(index) + ";" + unformatted_name + ";" + str(pkmn.base_stats) + ";" + str(types) + ";" + abilities
-            + ";" + str(pkmn.base_experience) + ";" + pkmn.growth_rate +";\n")
+            + ";" + str(pkmn.base_experience) + ";" + pkmn.growth_rate + ";" + moves + ";\n")
     print(unformatted_name + " has been saved successfully with id " + str(index) + ".")
     f.close()
 
@@ -50,10 +53,14 @@ def get_all_custom_pokemon():
         raw_abilities = []
         for t in raw[4].split(','):
             raw_abilities.append(t)
+        raw_moves = []
+        for t in raw[7].split(','):
+            raw_moves.append(t)
         pkmn = Pokemon(raw[1], raw_base_stats, raw_types, raw[0])
         pkmn.abilities = raw_abilities
         pkmn.base_experience = int(raw[5])
         pkmn.growth_rate = raw[6]
+        pkmn.moves = raw_moves
         custom_pokemon[raw[1]] = pkmn
     f.close()
     print("Finished reading custom Pokemon. Found " + str(len(custom_pokemon)) + " Pokemon.")
