@@ -10,6 +10,9 @@ from api.type import Type
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 custom_dict = {}
 
+# Set this to 1 if you want to disable Pokemon constructor messages
+enable_log = 0
+
 
 class Pokemon:
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
@@ -23,10 +26,10 @@ class Pokemon:
             self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
                 else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
         except InvalidStatusCodeError:
-            print("Pokemon not found, searching for custom Pokemon...")
+            if enable_log: print(name + " not found, searching for custom Pokemon...")
             raw = custom_dict.get(name)
             if raw is not None:
-                print("Custom Pokemon found!")
+                if enable_log: print("Custom Pokemon " + raw.name + " found!")
                 self.name = raw.name.replace("-", " ").title()
                 self.base_stats = raw.base_stats
                 self.types = raw.types
@@ -35,7 +38,7 @@ class Pokemon:
                 # If no pokemon in the database matched the request, these values can
                 # be set manually or automatically using the constructor parameters.
                 # This gives the user the ability to create completely new pokemon.
-                print("No custom Pokemon found.")
+                if enable_log: print("No custom Pokemon found.")
                 self.id = index
                 self.name = name.replace("-", " ").title()
                 self.base_stats = base_stats

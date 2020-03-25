@@ -1,6 +1,7 @@
 import os
 
 from api.pokemon import Pokemon
+from api import pokemon
 from api.type import Type
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname("api" + os.path.sep)))
@@ -24,6 +25,8 @@ def save_custom_pokemon(pokemon, unformatted_name):
 
 # Returns all custom pokemon as a dictionary
 def get_all_custom_pokemon():
+    print("Reading all custom Pokemon from \"custom/pokemon.data\"...")
+    pokemon.enable_log = 0  # Temporarily disable constructor output to avoid spam
     custom_pokemon = {}
     f = open(os.path.join(root_dir, "custom", "pokemon.data"), "r")
     for x in range(0, custom_pokemon_count()):
@@ -37,6 +40,8 @@ def get_all_custom_pokemon():
         pkmn = Pokemon(raw[1], raw_base_stats, raw_types, raw[0])
         custom_pokemon[raw[1]] = pkmn
     f.close()
+    print("Finished reading custom Pokemon. Found " + str(len(custom_pokemon)) + " Pokemon.")
+    pokemon.enable_log = 1  # Enabling constructor log again.
     return custom_pokemon
 
 
