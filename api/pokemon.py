@@ -1,9 +1,11 @@
 import math
 import random
+
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
-from api.Nature import Nature, natures
-from api.Type import Type
+
+from api.nature import Nature, natures
+from api.type import Type
 
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 custom_dict = {}

@@ -1,7 +1,7 @@
 import os
 
-from api.Pokemon import Pokemon
-from api.Type import Type
+from api.pokemon import Pokemon
+from api.type import Type
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname("api" + os.path.sep)))
 

@@ -1,7 +1,7 @@
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
 
-from api.Type import Type
+from api.type import Type
 
 
 class Move:
