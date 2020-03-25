@@ -30,9 +30,10 @@ class Pokemon:
                 self.types = raw.types
                 self.id = raw.id
             else:
-                # If no pokemon in the database matched the request, these values have to be set manually.
+                # If no pokemon in the database matched the request, these values can
+                # be set manually or automatically using the constructor parameters.
                 # This gives the user the ability to create completely new pokemon.
-                print("No custom Pokemon found, creating a new one...")
+                print("No custom Pokemon found.")
                 self.id = index
                 self.name = name.replace("-", " ").title()
                 self.base_stats = base_stats
