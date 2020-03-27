@@ -23,46 +23,42 @@ class Pokemon:
             client = pokepy.V2Client()
             raw = client.get_pokemon(name)
             if enable_log: print(raw.name + " was found in the database!")
-            self.id = raw.id
-            self.name = raw.name.replace("-", " ").title()
-            self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
-                               raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
-            self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
-                else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
-            for a in raw.abilities:
-                self.abilities.insert(a.slot, a.ability.name)
-            self.base_experience = raw.base_experience
-            self.growth_rate = client.get_pokemon_species(name).growth_rate.name
-            for m in raw.moves:
-                self.moves.append(m.move.name)
         except InvalidStatusCodeError:
             if enable_log: print(name + " not found in the database, searching for custom Pokemon...")
+            raw = custom_pokemon.get(name)
+        if raw is not None:
             try:
-                raw = custom_pokemon.get(name)
+                self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
+                                   raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
+                self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
+                    else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
+                for a in raw.abilities:
+                    self.abilities.insert(a.slot, a.ability.name)
+                self.growth_rate = client.get_pokemon_species(name).growth_rate.name
+                for m in raw.moves:
+                    self.moves.append(m.move.name)
             except AttributeError:
-                if enable_log: print("Custom dictionary seems to be empty...")
-            if raw is not None:
                 if enable_log: print("Custom Pokemon " + raw.name + " found!")
-                self.id = raw.id
-                self.name = raw.name.replace("-", " ").title()
                 self.base_stats = raw.base_stats
                 self.types = raw.types
                 self.abilities = raw.abilities
-                self.base_experience = 0
                 self.growth_rate = raw.growth_rate
                 self.moves = raw.moves
-            else:
-                # If no pokemon in the database matched the request, these values can
-                # be set manually or automatically using the constructor parameters.
-                # This gives the user the ability to create completely new pokemon.
-                if enable_log: print("No custom Pokemon found. Creating a new Pokemon.")
-                self.id = index
-                self.name = name.replace("-", " ").title()
-                self.base_stats = base_stats
-                self.types = types
-                self.abilities = ["none"]
-                self.base_experience = 0
-                self.growth_rate = "slow"
+            self.id = raw.id
+            self.name = raw.name.replace("-", " ").title()
+            self.base_experience = raw.base_experience
+        else:
+            # If no pokemon in the database matched the request, these values can
+            # be set manually or automatically using the constructor parameters.
+            # This gives the user the ability to create completely new pokemon.
+            if enable_log: print("No custom Pokemon found. Creating a new Pokemon.")
+            self.id = index
+            self.name = name.replace("-", " ").title()
+            self.base_stats = base_stats
+            self.types = types
+            self.abilities = ["none"]
+            self.base_experience = 0
+            self.growth_rate = "slow"
         while '' in self.abilities:
             self.abilities.remove('')  # remove "empty" abilities
 
