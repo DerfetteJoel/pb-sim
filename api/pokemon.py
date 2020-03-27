@@ -10,8 +10,8 @@ from api.type import Type
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 custom_dict = {}
 
-# Set this to 1 if you want to disable Pokemon constructor messages
-enable_log = 0
+# Set this to 0 if you want to disable Pokemon constructor messages
+enable_log = 1
 
 
 class Pokemon:
@@ -63,7 +63,7 @@ class Pokemon:
                 self.base_experience = 0
                 self.growth_rate = "slow"
         while '' in self.abilities:
-            self.abilities.remove('')
+            self.abilities.remove('')  # remove "empty" abilities
 
         # These are values that can be different for each pokemon of a species
         self.level = 1
@@ -75,7 +75,8 @@ class Pokemon:
         self.current_xp = 0
         self.set_level(5)  # If no level is specified, it is set to 5 by default
         # Values that are needed in battle
-        self.current_stats = [0, 0, 0, 0, 0, 0]  # newly generated pokemon have to heal once for these values to be set.
+        self.current_stats = [0, 0, 0, 0, 0, 0]
+        self.heal()  # Set current stats
 
     # Use set_level rather than accessing level directly to automatically recalculate stats
     def set_level(self, level):
