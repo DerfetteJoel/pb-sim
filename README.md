@@ -13,30 +13,27 @@ You can use the api directly from the python shell.
 #### Example 1: Creating a Pokemon
 1. Import `Pokemon` from `api.pokemon`.
 2. Create an existing Pokemon by calling its name in the 
-constructor: `pkmn = Pokemon("bulbasaur")`. Note: You can also pass
-the id of the pokemon, however that won't work when you want to get
-a custom Pokemon so it's best practice to always use the name.
-3. (Optional) Print Pokemon data to the console: `pkmn.print()`
+constructor: `bulbasaur = Pokemon("bulbasaur")`. Note: You can also
+pass the id of the pokemon, however that won't work when you want to
+get a custom Pokemon so it's best practice to always use the name.
+3. (Optional) Print Pokemon data to the console: `bulbasaur.print()`
 will output formatted information about the Pokemon including its 
 Types and Base Stats.
 
 #### Example 2: Creating a move
 1. Import `Move` from `api.move`.
 2. Create an existing Move by calling it's name in the console:
-`move = Move("flamethrower")`.
+`flamethrower = Move("flamethrower")`.
 
 #### Example 3: Attacking a pokemon (calculating damage)
 1. (Optional) Set the level of your Pokemon to any level you wish
-using `pkmn.set_level(level)`. The level is 1 by default.
-2. (Optional) Generate IVs, Nature and calculate the stats.
-This is done using `pkmn.generate()`. You can skip step 3 if you
-used this.
-3. Calculate stats using `pkmn.calculate_stats()` and 
-then `pkmn.heal()` to also set current stats used in battle.
-4. Attack any pokemon you have instantiated by using 
-`pkmn.attack(other_pokemon, move)`. In our example, we can make
+using `bulbasaur.set_level(level)`. The level is 1 by default.
+2. (Optional) Generate IVs and Nature.
+This is done using `pkmn.generate()`.
+3. Attack any pokemon you have instantiated by using 
+`attack(other_pokemon, move)`. In our example, we can make
 Bulbasaur attack itself using Flamethrower by calling
-`pkmn.attack(pkmn, move)`.
+`bulbasaur.attack(bulbasaur, flamethrower)`.
 
 #### Example 4: Creating a completely new Pokemon
 1. Call `custom = Pokemon(name)` using a unique, new name that
