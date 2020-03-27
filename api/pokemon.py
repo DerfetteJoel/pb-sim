@@ -73,12 +73,14 @@ class Pokemon:
         self.stats = [0, 0, 0, 0, 0, 0]
         self.current_moves = []
         self.current_xp = 0
+        self.set_level(5)  # If no level is specified, it is set to 5 by default
         # Values that are needed in battle
         self.current_stats = [0, 0, 0, 0, 0, 0]  # newly generated pokemon have to heal once for these values to be set.
 
     # Use set_level rather than accessing level directly to automatically recalculate stats
     def set_level(self, level):
         self.level = level
+        self.current_xp = self.exp(level)
         self.calculate_stats()
 
     # Use set_level rather than accessing level directly to automatically recalculate stats
