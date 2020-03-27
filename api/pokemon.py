@@ -72,7 +72,6 @@ class Pokemon:
             self.growth_rate = "slow"
         while '' in self.abilities:
             self.abilities.remove('')  # remove "empty" abilities
-
         # These are values that can be different for each pokemon of a species
         self.level = 5
         self.ivs = [0, 0, 0, 0, 0, 0]
