@@ -83,6 +83,12 @@ class Pokemon:
         self.level = level
         self.current_xp = self.exp(level)
         self.calculate_stats()
+        # The following lines ensure that a Pokemon's current stats are recalculated upon the level up,
+        # but the missing hp (if any) are not restored. This way, a hit pokemon won't magically heal
+        # when it levels up.
+        hp_diff = self.stats[0] - self.current_stats[0]  # If the is at full hp, this will be 0
+        self.heal()
+        self.current_stats -= hp_diff
 
     # Use set_level rather than accessing level directly to automatically recalculate stats
     def set_ev(self, index, value):
