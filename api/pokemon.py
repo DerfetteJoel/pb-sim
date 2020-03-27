@@ -16,26 +16,25 @@ enable_log = 1
 
 class Pokemon:
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
-        client = pokepy.V2Client()
         self.abilities = ["", "", ""]
         self.moves = []
         raw = None
         try:
+            client = pokepy.V2Client()
             raw = client.get_pokemon(name)
-            if raw is not None:
-                if enable_log: print(raw.name + " was found in the database!")
-                self.id = raw.id
-                self.name = raw.name.replace("-", " ").title()
-                self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
-                                   raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
-                self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
-                    else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
-                for a in raw.abilities:
-                    self.abilities.insert(a.slot, a.ability.name)
-                self.base_experience = raw.base_experience
-                self.growth_rate = client.get_pokemon_species(name).growth_rate.name
-                for m in raw.moves:
-                    self.moves.append(m.move.name)
+            if enable_log: print(raw.name + " was found in the database!")
+            self.id = raw.id
+            self.name = raw.name.replace("-", " ").title()
+            self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
+                               raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
+            self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
+                else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
+            for a in raw.abilities:
+                self.abilities.insert(a.slot, a.ability.name)
+            self.base_experience = raw.base_experience
+            self.growth_rate = client.get_pokemon_species(name).growth_rate.name
+            for m in raw.moves:
+                self.moves.append(m.move.name)
         except InvalidStatusCodeError:
             if enable_log: print(name + " not found in the database, searching for custom Pokemon...")
             try:
@@ -55,7 +54,7 @@ class Pokemon:
                 # If no pokemon in the database matched the request, these values can
                 # be set manually or automatically using the constructor parameters.
                 # This gives the user the ability to create completely new pokemon.
-                if enable_log: print("No custom Pokemon found. Creating new Pokemon from template.")
+                if enable_log: print("No custom Pokemon found. Creating a new Pokemon.")
                 self.id = index
                 self.name = name.replace("-", " ").title()
                 self.base_stats = base_stats
@@ -90,7 +89,7 @@ class Pokemon:
         self.heal()
         self.current_stats[0] -= hp_diff
 
-    # Use set_level rather than accessing level directly to automatically recalculate stats
+    # Use set_ev rather than accessing ev directly to automatically recalculate stats
     def set_ev(self, index, value):
         self.evs[index] = value
         self.calculate_stats()
