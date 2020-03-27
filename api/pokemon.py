@@ -169,6 +169,7 @@ class Pokemon:
     # Randomly generate a nature
     def generate_nature(self):
         self.nature = Nature(natures[random.randint(0, len(natures) - 1)])
+        self.calculate_stats()
 
     # All-In-One method for generating all required values for a new pokemon
     def generate(self):
