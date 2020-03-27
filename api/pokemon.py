@@ -37,7 +37,7 @@ class Pokemon:
                 for m in raw.moves:
                     self.moves.append(m.move.name)
         except InvalidStatusCodeError:
-            if enable_log: print(name + " not found, searching for custom Pokemon...")
+            if enable_log: print(name + " not found in the database, searching for custom Pokemon...")
             try:
                 raw = custom_dict.get(name)
             except AttributeError:
