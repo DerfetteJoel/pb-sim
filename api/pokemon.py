@@ -47,9 +47,10 @@ class Pokemon:
                 self.name = raw.name.replace("-", " ").title()
                 self.base_stats = raw.base_stats
                 self.types = raw.types
-                self.abilities = ["none"]
+                self.abilities = raw.abilities
                 self.base_experience = 0
-                self.growth_rate = "slow"
+                self.growth_rate = raw.growth_rate
+                self.moves = raw.moves
             else:
                 # If no pokemon in the database matched the request, these values can
                 # be set manually or automatically using the constructor parameters.
