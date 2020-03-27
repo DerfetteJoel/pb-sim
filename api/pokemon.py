@@ -23,6 +23,7 @@ class Pokemon:
         try:
             raw = client.get_pokemon(name)
             if raw is not None:
+                if enable_log: print(raw.name + " was found in the database!")
                 self.id = raw.id
                 self.name = raw.name.replace("-", " ").title()
                 self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
@@ -66,16 +67,15 @@ class Pokemon:
             self.abilities.remove('')  # remove "empty" abilities
 
         # These are values that can be different for each pokemon of a species
-        self.level = 1
+        self.level = 5
         self.ivs = [0, 0, 0, 0, 0, 0]
         self.evs = [0, 0, 0, 0, 0, 0]
         self.nature = Nature("hardy")
         self.stats = [0, 0, 0, 0, 0, 0]
         self.current_moves = []
-        self.current_xp = 0
-        self.set_level(5)  # If no level is specified, it is set to 5 by default
-        # Values that are needed in battle
-        self.current_stats = [0, 0, 0, 0, 0, 0]
+        self.current_xp = self.exp(self.level)
+        self.current_stats = [0, 0, 0, 0, 0, 0]  # Values that are needed in battle
+        self.calculate_stats()
         self.heal()  # Set current stats
 
     # Use set_level rather than accessing level directly to automatically recalculate stats
@@ -88,7 +88,7 @@ class Pokemon:
         # when it levels up.
         hp_diff = self.stats[0] - self.current_stats[0]  # If the is at full hp, this will be 0
         self.heal()
-        self.current_stats -= hp_diff
+        self.current_stats[0] -= hp_diff
 
     # Use set_level rather than accessing level directly to automatically recalculate stats
     def set_ev(self, index, value):
