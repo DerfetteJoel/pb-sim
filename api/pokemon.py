@@ -15,6 +15,12 @@ enable_log = 1
 
 
 class Pokemon:
+    # This constructor seems intimidating, but it really isn't doing any magic.
+    # First, it searches the requested Pokemon in PokeAPIs database. If it doesn't find it there,
+    # It looks up the custom pokemon dictionary. If one of these searches is successful, the variable
+    # 'raw' is assigned its data. Since both cases are similar, they are handled in the same if-clause.
+    # If the constructor doesnt find the pokemon either in the database nor in the custom dict, it creates a new
+    # Pokemon.
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
         self.abilities = ["", "", ""]
         self.moves = []
@@ -27,7 +33,10 @@ class Pokemon:
             if enable_log: print(name + " not found in the database, searching for custom Pokemon...")
             raw = custom_pokemon.get(name)
         if raw is not None:
-            try:
+            # Since the data is stored a bit differently in PokeApis database, the constructor cant use the same
+            # code in the 2 scenarios (Pokemon found in database / Pokemon found in custom dict). It will just try
+            # anyways.
+            try:  # This is used in case the pokemon was found in the database
                 self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
                                    raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
                 self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
@@ -38,6 +47,8 @@ class Pokemon:
                 for m in raw.moves:
                     self.moves.append(m.move.name)
             except AttributeError:
+                # This is used in case the pokemon was not found in the database,
+                # but in the custom dict
                 if enable_log: print("Custom Pokemon " + raw.name + " found!")
                 self.base_stats = raw.base_stats
                 self.types = raw.types
