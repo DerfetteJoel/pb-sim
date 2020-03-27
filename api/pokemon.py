@@ -8,7 +8,7 @@ from api.nature import Nature, natures
 from api.type import Type
 
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
-custom_dict = {}
+custom_pokemon = {}
 
 # Set this to 0 if you want to disable Pokemon constructor messages
 enable_log = 1
@@ -38,7 +38,7 @@ class Pokemon:
         except InvalidStatusCodeError:
             if enable_log: print(name + " not found in the database, searching for custom Pokemon...")
             try:
-                raw = custom_dict.get(name)
+                raw = custom_pokemon.get(name)
             except AttributeError:
                 if enable_log: print("Custom dictionary seems to be empty...")
             if raw is not None:
