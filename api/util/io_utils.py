@@ -135,3 +135,12 @@ def delete_custom_pokemon():
         print("1 Pokemon has been deleted.")
     else:
         print(str(count) + " Pokemon have been deleted.")
+
+
+def delete_custom_moves():
+    count = custom_moves_count()
+    os.remove(os.path.join(root_dir, "custom", "move.data"))
+    if count == 1:
+        print("1 move has been deleted.")
+    else:
+        print(str(count) + " moves have been deleted.")
