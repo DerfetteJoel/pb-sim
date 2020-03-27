@@ -1,6 +1,7 @@
 import os
 
 from api import pokemon
+from api.move import Move
 from api.pokemon import Pokemon
 from api.type import Type
 
@@ -28,6 +29,21 @@ def save_custom_pokemon(pkmn: Pokemon, unformatted_name: str):
     f.write(str(index) + ";" + unformatted_name + ";" + str(pkmn.base_stats) + ";" + str(types) + ";" + abilities
             + ";" + str(pkmn.base_experience) + ";" + pkmn.growth_rate + ";" + moves + ";\n")
     print(unformatted_name + " has been saved successfully with id " + str(index) + ".")
+    f.close()
+
+
+# Saves the move in a sub-folder. Please make sure you use an unformatted name ("lower-case")
+def save_custom_move(move: Move, unformatted_name: str):
+    try:
+        os.mkdir(os.path.join(root_dir, "custom"))
+    except FileExistsError:
+        pass
+    f = open(os.path.join(root_dir, "custom", "move.data"), "a")
+    index = 729 + custom_moves_count()
+    f.write(str(index) + ";" + move.name + ";" + str(move.accuracy) + ";" + str(move.power) + ";"
+            + str(move.pp) + ";" + str(move.effect_chance) + ";" + str(move.priority) + ";"
+            + move.damage_class + ";" + move.type.name + ";\n")
+    print(unformatted_name + " has been saved successfully with id " + str(index))
     f.close()
 
 
@@ -68,9 +84,43 @@ def get_all_custom_pokemon():
     return custom_pokemon
 
 
+def get_all_custom_moves():
+    print("Reading all custom Pokemon from \"custom/pokemon.data\"...")
+    custom_moves = {}
+    try:
+        f = open(os.path.join(root_dir, "custom", "move.data"), "r")
+    except FileNotFoundError:
+        print("No custom moves found.")
+        return
+    for x in range(0, custom_moves_count()):
+        raw = f.readline().split(';')
+        move = Move(raw[1])
+        move.id = int(raw[0])
+        move.accuracy = int(raw[2])
+        move.power = int(raw[3])
+        move.pp = int(raw[4])
+        move.effect_chance = int(raw[5]) if raw[5] != "None" else None
+        move.priority = int(raw[6])
+        move.damage_class = raw[7]
+        move.type = Type(raw[8])
+        custom_moves[raw[1]] = move
+    f.close()
+    print("Finished reading custom Moves. Found " + str(len(custom_moves)) + " Moves.")
+    return custom_moves
+
+
 # Returns the number of custom pokemon, needed for automatically indexing new pokemon
 def custom_pokemon_count():
     with open(os.path.join(root_dir, "custom", "pokemon.data"), "r") as f:
+        i = -1
+        for i, l in enumerate(f):
+            pass
+    return i + 1
+
+
+# Returns the number of custom moves, needed for automatically indexing new moves
+def custom_moves_count():
+    with open(os.path.join(root_dir, "custom", "move.data"), "r") as f:
         i = -1
         for i, l in enumerate(f):
             pass
