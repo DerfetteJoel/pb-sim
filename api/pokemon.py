@@ -23,7 +23,7 @@ class Pokemon:
     # Pokemon.
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
         self.abilities = ["", "", ""]
-        self.moves = []
+        self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
         raw = None
         try:
             client = pokepy.V2Client()
@@ -45,7 +45,11 @@ class Pokemon:
                     self.abilities.insert(a.slot, a.ability.name)
                 self.growth_rate = client.get_pokemon_species(name).growth_rate.name
                 for m in raw.moves:
-                    self.moves.append(m.move.name)
+                    move_name = m.move.name
+                    learn_method = m.version_group_details[0].move_learn_method.name
+                    level_learned_at = m.version_group_details[0].level_learned_at
+                    self.moves.append({"name": move_name, "learn_method": learn_method,
+                                       "level_learned_at": level_learned_at})
             except AttributeError:
                 # This is used in case the pokemon was not found in the database,
                 # but in the custom dict

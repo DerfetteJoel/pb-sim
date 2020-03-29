@@ -22,9 +22,10 @@ def save_custom_pokemon(pkmn: Pokemon, unformatted_name: str):
     abilities = pkmn.abilities[0]
     for i in range(1, len(pkmn.abilities)):
         abilities += "," + pkmn.abilities[i]
-    moves = pkmn.moves[0] if pkmn.moves else ""
+    moves = str(pkmn.moves[0]) if pkmn.moves else ""
     for i in range(1, len(pkmn.moves)):
-        moves += "," + pkmn.moves[i]
+        moves += "," + str(pkmn.moves[i])
+    moves = moves.replace(" ", "").replace("'", "").replace("},{", "#").replace("{", "").replace("}", "")
     index = 808 + custom_pokemon_count()
     f.write(str(index) + ";" + unformatted_name + ";" + str(pkmn.base_stats) + ";" + str(types) + ";" + abilities
             + ";" + str(pkmn.base_experience) + ";" + pkmn.growth_rate + ";" + moves + ";\n")
@@ -70,8 +71,13 @@ def get_all_custom_pokemon():
         for t in raw[4].split(','):
             raw_abilities.append(t)
         raw_moves = []
-        for t in raw[7].split(','):
-            raw_moves.append(t)
+        for t in raw[7].split('#'):
+            raw_m = t.split(',')
+            move_name = raw_m[0].split(':')[1]
+            learn_method = raw_m[1].split(':')[1]
+            level_learned_at = int(raw_m[2].split(':')[1])
+            raw_moves.append({"name": move_name, "learn_method": learn_method,
+                              "level_learned_at": level_learned_at})
         pkmn = Pokemon(raw[1], raw_base_stats, raw_types, raw[0])
         pkmn.abilities = raw_abilities
         pkmn.base_experience = int(raw[5])
