@@ -4,6 +4,7 @@ import random
 import pokepy
 from beckett.exceptions import InvalidStatusCodeError
 
+from api.move import Move
 from api.nature import Nature, natures
 from api.type import Type
 
@@ -24,9 +25,9 @@ class Pokemon:
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
         self.abilities = ["", "", ""]
         self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
+        client = pokepy.V2Client()
         raw = None
         try:
-            client = pokepy.V2Client()
             raw = client.get_pokemon(name)
             if enable_log: print(raw.name + " was found in the database!")
         except InvalidStatusCodeError:
@@ -91,7 +92,6 @@ class Pokemon:
     # Use set_level rather than accessing level directly to automatically recalculate stats
     def set_level(self, level):
         self.level = level
-        self.current_xp = self.exp(level)
         self.calculate_stats()
         # The following lines ensure that a Pokemon's current stats are recalculated upon the level up,
         # but the missing hp (if any) are not restored. This way, a hit pokemon won't magically heal
@@ -99,6 +99,52 @@ class Pokemon:
         hp_diff = self.stats[0] - self.current_stats[0]  # If the is at full hp, this will be 0
         self.heal()
         self.current_stats[0] -= hp_diff
+
+    # Adds amount xp to current_xp, calculates if there are any level ups, and checks for any level up moves
+    def add_xp(self, amount):
+        self.current_xp += amount
+        old_stats = []
+        for i in self.stats:
+            old_stats.append(i)
+        stat_diff = [0, 0, 0, 0, 0, 0]
+        old_level = self.level
+        new_level = self.level
+        while self.current_xp >= self.exp(new_level):
+            new_level += 1
+        for i in range(0, new_level - old_level):
+            self.set_level(self.level + 1)
+            print(self.name + " reached Level " + str(self.level) + "! (", end='')
+            for j in range(0, 6):
+                stat_diff[j] = self.stats[j] - old_stats[j]
+                old_stats[j] = self.stats[j]
+                print("+" + str(stat_diff[j]), end='')
+                if j < 5: print(", ", end='')
+            print(")")
+            for m in self.moves:
+                if m["level_learned_at"] == self.level:
+                    move = Move(m["name"])
+                    if len(self.current_moves) == 4:
+                        replace = 5
+                        print(self.name + " wants to learn " + move.name + ", but it already knows 4 Moves:")
+                        print(self.current_moves[0].name + ", " + self.current_moves[1].name + ", " +
+                              self.current_moves[2].name + ", " + self.current_moves[3].name)
+                        while (replace < 0) or (replace > 4):
+                            try:
+                                replace = int(input("Please specify which move shall be forgotten(1-4), if any(0): "))
+                                if 0 <= replace <= 4:
+                                    break
+                            except ValueError:
+                                pass
+                            print("Invalid Input!")
+                        if replace != 0:
+                            print(self.name + "forgot " + self.current_moves[replace - 1].name + " and learned " +
+                                  move.name + "!")
+                            self.current_moves[replace - 1] = move
+                        else:
+                            print(self.name + " did not learn " + move.name + ".")
+                    else:
+                        self.current_moves.append(move)
+                        print(self.name + " learned " + move.name + "!")
 
     # Use set_ev rather than accessing ev directly to automatically recalculate stats
     def set_ev(self, index, value):
