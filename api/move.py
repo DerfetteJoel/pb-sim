@@ -1,9 +1,12 @@
 import pokepy
+
 from beckett.exceptions import InvalidStatusCodeError
 
 from api.type import Type
 
 # This can be filled with custom moves from the outside, for example using IOUtils.get_all_custom_moves()
+from api.util import util
+
 custom_moves = {}
 
 
@@ -13,7 +16,7 @@ class Move:
         try:
             client = pokepy.V2Client()
             raw = client.get_move(name)
-            print(name + " found in the database!")
+            util.log(name + " found in the database!")
         except InvalidStatusCodeError:
             raw = custom_moves.get(name)
         if raw is not None:
@@ -21,7 +24,7 @@ class Move:
                 self.damage_class = raw.damage_class.name
                 self.type = Type(raw.type.name)
             except AttributeError:
-                print("Custom move " + name + " found!")
+                util.log("Custom move " + name + " found!")
                 self.damage_class = raw.damage_class
                 self.type = raw.type
             self.id = raw.id
@@ -34,7 +37,7 @@ class Move:
         else:
             # If no move in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new moves.
-            print("No custom move found. Creating a new move")
+            util.log("No custom move found. Creating a new move")
             self.id = -1
             self.name = name
             self.accuracy = 100
