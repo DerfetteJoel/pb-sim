@@ -9,10 +9,9 @@ from api.nature import Nature, natures
 from api.type import Type
 
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
-custom_pokemon = {}
+from api.util import util
 
-# Set this to 0 if you want to disable Pokemon constructor messages
-enable_log = 1
+custom_pokemon = {}
 
 
 class Pokemon:
@@ -29,9 +28,9 @@ class Pokemon:
         raw = None
         try:
             raw = client.get_pokemon(name)
-            if enable_log: print(raw.name + " was found in the database!")
+            util.log(raw.name + " was found in the database!")
         except InvalidStatusCodeError:
-            if enable_log: print(name + " not found in the database, searching for custom Pokemon...")
+            util.log(name + " not found in the database, searching for custom Pokemon...")
             raw = custom_pokemon.get(name)
         if raw is not None:
             # Since the data is stored a bit differently in PokeApis database, the constructor cant use the same
@@ -54,7 +53,7 @@ class Pokemon:
             except AttributeError:
                 # This is used in case the pokemon was not found in the database,
                 # but in the custom dict
-                if enable_log: print("Custom Pokemon " + raw.name + " found!")
+                util.log("Custom Pokemon " + raw.name + " found!")
                 self.base_stats = raw.base_stats
                 self.types = raw.types
                 self.abilities = raw.abilities
@@ -67,7 +66,7 @@ class Pokemon:
             # If no pokemon in the database matched the request, these values can
             # be set manually or automatically using the constructor parameters.
             # This gives the user the ability to create completely new pokemon.
-            if enable_log: print("No custom Pokemon found. Creating a new Pokemon.")
+            util.log("No custom Pokemon found. Creating a new Pokemon.")
             self.id = index
             self.name = name.replace("-", " ").title()
             self.base_stats = base_stats
@@ -109,7 +108,7 @@ class Pokemon:
         stat_diff = [0, 0, 0, 0, 0, 0]
         old_level = self.level
         new_level = self.level
-        while self.current_xp >= self.exp(new_level):
+        while self.current_xp > self.exp(new_level):
             new_level += 1
         for i in range(0, new_level - old_level):
             self.set_level(self.level + 1)
@@ -137,7 +136,7 @@ class Pokemon:
                                 pass
                             print("Invalid Input!")
                         if replace != 0:
-                            print(self.name + "forgot " + self.current_moves[replace - 1].name + " and learned " +
+                            print(self.name + " forgot " + self.current_moves[replace - 1].name + " and learned " +
                                   move.name + "!")
                             self.current_moves[replace - 1] = move
                         else:
