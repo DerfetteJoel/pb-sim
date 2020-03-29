@@ -6,15 +6,16 @@ from api.pokemon import Pokemon
 from api.type import Type
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname("api" + os.path.sep)))
+custom_path = os.path.join(root_dir, "data", "custom")  # Path to the directory where all custom data is stored
 
 
 # Saves the pokemon in a sub-folder. Please make sure you use an unformatted name ("lower-case")
 def save_custom_pokemon(pkmn: Pokemon, unformatted_name: str):
     try:
-        os.mkdir(os.path.join(root_dir, "custom"))
+        os.makedirs(custom_path)
     except FileExistsError:
         pass
-    f = open(os.path.join(root_dir, "custom", "pokemon.data"), "a")
+    f = open(os.path.join(custom_path, "pokemon.data"), "a")
     unformatted_name.replace(";", "")  # make sure no apostrophes are in the unformatted name
     types = pkmn.types[0].name
     if len(pkmn.types) > 1:
@@ -36,10 +37,10 @@ def save_custom_pokemon(pkmn: Pokemon, unformatted_name: str):
 # Saves the move in a sub-folder. Please make sure you use an unformatted name ("lower-case")
 def save_custom_move(move: Move, unformatted_name: str):
     try:
-        os.mkdir(os.path.join(root_dir, "custom"))
+        os.makedirs(custom_path)
     except FileExistsError:
         pass
-    f = open(os.path.join(root_dir, "custom", "move.data"), "a")
+    f = open(os.path.join(custom_path, "move.data"), "a")
     index = 729 + custom_moves_count()
     f.write(str(index) + ";" + move.name + ";" + str(move.accuracy) + ";" + str(move.power) + ";"
             + str(move.pp) + ";" + str(move.effect_chance) + ";" + str(move.priority) + ";"
@@ -50,11 +51,11 @@ def save_custom_move(move: Move, unformatted_name: str):
 
 # Returns all custom pokemon as a dictionary
 def get_all_custom_pokemon():
-    print("Reading all custom Pokemon from \"custom/pokemon.data\"...")
+    print("Reading all custom Pokemon from \"data/custom/pokemon.data\"...")
     pokemon.enable_log = 0  # Temporarily disable constructor output to avoid spam
     custom_pokemon = {}
     try:
-        f = open(os.path.join(root_dir, "custom", "pokemon.data"), "r")
+        f = open(os.path.join(custom_path, "pokemon.data"), "r")
     except FileNotFoundError:
         print("No custom Pokemon found.")
         pokemon.enable_log = 1
@@ -94,7 +95,7 @@ def get_all_custom_moves():
     print("Reading all custom Pokemon from \"custom/pokemon.data\"...")
     custom_moves = {}
     try:
-        f = open(os.path.join(root_dir, "custom", "move.data"), "r")
+        f = open(os.path.join(custom_path, "move.data"), "r")
     except FileNotFoundError:
         print("No custom moves found.")
         return
@@ -117,7 +118,7 @@ def get_all_custom_moves():
 
 # Returns the number of custom pokemon, needed for automatically indexing new pokemon
 def custom_pokemon_count():
-    with open(os.path.join(root_dir, "custom", "pokemon.data"), "r") as f:
+    with open(os.path.join(custom_path, "pokemon.data"), "r") as f:
         i = -1
         for i, l in enumerate(f):
             pass
@@ -126,7 +127,7 @@ def custom_pokemon_count():
 
 # Returns the number of custom moves, needed for automatically indexing new moves
 def custom_moves_count():
-    with open(os.path.join(root_dir, "custom", "move.data"), "r") as f:
+    with open(os.path.join(custom_path, "move.data"), "r") as f:
         i = -1
         for i, l in enumerate(f):
             pass
@@ -136,7 +137,7 @@ def custom_moves_count():
 # Deletes all custom pokemon
 def delete_custom_pokemon():
     count = custom_pokemon_count()
-    os.remove(os.path.join(root_dir, "custom", "pokemon.data"))
+    os.remove(os.path.join(custom_path, "pokemon.data"))
     if count == 1:
         print("1 Pokemon has been deleted.")
     else:
@@ -145,7 +146,7 @@ def delete_custom_pokemon():
 
 def delete_custom_moves():
     count = custom_moves_count()
-    os.remove(os.path.join(root_dir, "custom", "move.data"))
+    os.remove(os.path.join(custom_path, "move.data"))
     if count == 1:
         print("1 move has been deleted.")
     else:
