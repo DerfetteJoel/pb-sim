@@ -7,10 +7,11 @@ from beckett.exceptions import InvalidStatusCodeError
 from api.move import Move
 from api.nature import Nature, natures
 from api.type import Type
-
-# This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
+from api.evolution_chain import EvolutionChain
 from api.util import util
 
+
+# This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 custom_pokemon = {}
 
 
@@ -25,6 +26,7 @@ class Pokemon:
         client = pokepy.V2Client()
         self.abilities = ["", "", ""]
         self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
+        self.evolves_to = []
         raw = None
         try:
             raw = client.get_pokemon(name)
@@ -50,6 +52,9 @@ class Pokemon:
                     level_learned_at = m.version_group_details[0].level_learned_at
                     self.moves.append({"name": move_name, "learn_method": learn_method,
                                        "level_learned_at": level_learned_at})
+                chain_id = client.get_pokemon_species(name).evolution_chain.url.split('/')[-2]
+                self.evolution_chain = EvolutionChain(chain_id)
+                self.evolution_chain.set_stage(raw.name)
             except AttributeError:
                 # This is used in case the pokemon was not found in the database,
                 # but in the custom dict
