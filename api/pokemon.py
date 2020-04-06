@@ -22,9 +22,9 @@ class Pokemon:
     # If the constructor doesnt find the pokemon either in the database nor in the custom dict, it creates a new
     # Pokemon.
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
+        client = pokepy.V2Client()
         self.abilities = ["", "", ""]
         self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
-        client = pokepy.V2Client()
         raw = None
         try:
             raw = client.get_pokemon(name)

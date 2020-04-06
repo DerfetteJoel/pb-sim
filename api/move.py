@@ -3,10 +3,9 @@ import pokepy
 from beckett.exceptions import InvalidStatusCodeError
 
 from api.type import Type
-
-# This can be filled with custom moves from the outside, for example using IOUtils.get_all_custom_moves()
 from api.util import util
 
+# This can be filled with custom moves from the outside, for example using IOUtils.get_all_custom_moves()
 custom_moves = {}
 
 
