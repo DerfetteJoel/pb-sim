@@ -10,7 +10,6 @@ from api.type import Type
 from api.evolution_chain import EvolutionChain
 from api.util import util
 
-
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 custom_pokemon = {}
 
@@ -24,10 +23,15 @@ class Pokemon:
     # Pokemon.
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type("normal")], index=-1):
         client = pokepy.V2Client()
-        self.abilities = ["", "", ""]
+        self.id = index
+        self.name = name.replace("-", " ").title()
+        self.base_stats = base_stats
+        self.types = types
+        self.abilities = []
+        self.base_experience = 0
+        self.growth_rate = "slow"
         self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
-        self.evolves_to = []
-        raw = None
+        self.evolves_to = {}
         try:
             raw = client.get_pokemon(name)
             util.log(raw.name + " was found in the database!")
@@ -55,6 +59,10 @@ class Pokemon:
                 chain_id = client.get_pokemon_species(name).evolution_chain.url.split('/')[-2]
                 self.evolution_chain = EvolutionChain(chain_id)
                 self.evolution_chain.set_stage(raw.name)
+                if self.evolution_chain.stage == 0:
+                    self.evolves_to = self.evolution_chain.stage_1_evolutions
+                elif self.evolution_chain.stage == 1:
+                    self.evolves_to = self.evolution_chain.stage_2_evolutions
             except AttributeError:
                 # This is used in case the pokemon was not found in the database,
                 # but in the custom dict
@@ -72,22 +80,18 @@ class Pokemon:
             # be set manually or automatically using the constructor parameters.
             # This gives the user the ability to create completely new pokemon.
             util.log("No custom Pokemon found. Creating a new Pokemon.")
-            self.id = index
-            self.name = name.replace("-", " ").title()
-            self.base_stats = base_stats
-            self.types = types
-            self.abilities = ["none"]
-            self.base_experience = 0
-            self.growth_rate = "slow"
         while '' in self.abilities:
             self.abilities.remove('')  # remove "empty" abilities
         # These are values that can be different for each pokemon of a species
-        self.level = 5
+        self.level = 1
         self.ivs = [0, 0, 0, 0, 0, 0]
         self.evs = [0, 0, 0, 0, 0, 0]
         self.nature = Nature("hardy")
         self.stats = [0, 0, 0, 0, 0, 0]
         self.current_moves = []
+        for m in self.moves:
+            if m["level_learned_at"] == self.level:
+                self.current_moves.append(Move(m["name"]))
         self.current_xp = self.exp(self.level)
         self.current_stats = [0, 0, 0, 0, 0, 0]  # Values that are needed in battle
         self.calculate_stats()
@@ -113,17 +117,20 @@ class Pokemon:
         stat_diff = [0, 0, 0, 0, 0, 0]
         old_level = self.level
         new_level = self.level
-        while self.current_xp > self.exp(new_level):
+        while (self.current_xp > self.exp(new_level)) and (new_level < 100):
             new_level += 1
         for i in range(0, new_level - old_level):
             self.set_level(self.level + 1)
             print(self.name + " reached Level " + str(self.level) + "! (", end='')
             for j in range(0, 6):
                 stat_diff[j] = self.stats[j] - old_stats[j]
-                old_stats[j] = self.stats[j]
                 print("+" + str(stat_diff[j]), end='')
                 if j < 5: print(", ", end='')
             print(")")
+            if self.evolution_chain.stage != 2:
+                self.try_level_evolution()
+            for j in range(0, 6):
+                old_stats[j] = self.stats[j]
             for m in self.moves:
                 if m["level_learned_at"] == self.level:
                     move = Move(m["name"])
@@ -132,15 +139,18 @@ class Pokemon:
                         print(self.name + " wants to learn " + move.name + ", but it already knows 4 Moves:")
                         print(self.current_moves[0].name + ", " + self.current_moves[1].name + ", " +
                               self.current_moves[2].name + ", " + self.current_moves[3].name)
-                        while (replace < 0) or (replace > 4):
+                        while 1:
                             try:
-                                replace = int(input("Please specify which move shall be forgotten(1-4), if any(0): "))
-                                if 0 <= replace <= 4:
+                                _in = input("Please specify which move shall be forgotten(1-4), "
+                                            "leave empty if no move should be forgotten: ")
+                                if _in != '': replace = int(_in)
+                                else: replace = None
+                                if (replace is None) or (1 <= replace <= 4):
                                     break
                             except ValueError:
                                 pass
                             print("Invalid Input!")
-                        if replace != 0:
+                        if replace is not None:
                             print(self.name + " forgot " + self.current_moves[replace - 1].name + " and learned " +
                                   move.name + "!")
                             self.current_moves[replace - 1] = move
@@ -199,6 +209,38 @@ class Pokemon:
     def battle_xp(self, other):
         return math.floor(((other.base_experience * other.level) / 5) *
                           (((2 * other.level + 10) ** 2.5) / ((other.level + self.level + 10) ** 2.5)) + 1)
+
+    # Checks if min_level in evolves_to is sufficient and will attempt an evolution
+    def try_level_evolution(self):
+        if self.evolution_chain.stage == 2:
+            return
+        evolution_name = list(self.evolves_to.keys())[0]
+        evolution_level = self.evolves_to[evolution_name]["min_level"]
+        if (self.level >= evolution_level) and (evolution_level != 0):
+            confirmation = ""
+            while (confirmation.lower() != 'a') or (confirmation.lower() != 'b'):
+                try:
+                    confirmation = input(self.name + " is evolving! Type b to abort, leave empty to continue: ")
+                    if (confirmation.lower() == '') or (confirmation.lower() == 'b'):
+                        break
+                except ValueError:
+                    pass
+                print("Invalid Input!")
+            if confirmation == '':
+                # perform evolution
+                old_name = self.name
+                evolution = Pokemon(evolution_name)
+                evolution.name.replace("-", " ").title()
+                evolution.current_xp = self.current_xp
+                evolution.current_moves = self.current_moves
+                evolution.ivs = self.ivs
+                evolution.evs = self.evs
+                evolution.nature = self.nature
+                evolution.set_level(self.level)
+                self.__dict__ = evolution.__dict__
+                print("Congratulations! Your " + old_name + " evolved into " + self.name + "!")
+                return
+            print(self.name + " did not evolve.")
 
     # Print formatted information about the Pokemon species on the screen
     def print(self):
