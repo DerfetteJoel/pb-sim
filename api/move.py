@@ -15,7 +15,7 @@ class Move:
         try:
             client = pokepy.V2Client()
             raw = client.get_move(name)
-            util.log(name + " found in the database!")
+            util.log(name + ' found in the database!')
         except InvalidStatusCodeError:
             raw = custom_moves.get(name)
         if raw is not None:
@@ -23,11 +23,11 @@ class Move:
                 self.damage_class = raw.damage_class.name
                 self.type = Type(raw.type.name)
             except AttributeError:
-                util.log("Custom move " + name + " found!")
+                util.log('Custom move ' + name + ' found!')
                 self.damage_class = raw.damage_class
                 self.type = raw.type
             self.id = raw.id
-            self.name = raw.name.replace("-", " ").title()
+            self.name = raw.name.replace('-', ' ').title()
             self.accuracy = raw.accuracy
             self.power = raw.power
             self.pp = raw.pp
@@ -36,16 +36,16 @@ class Move:
         else:
             # If no move in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new moves.
-            util.log("No custom move found. Creating a new move")
+            util.log('No custom move found. Creating a new move')
             self.id = -1
-            self.name = name
+            self.name = name.replace('-', ' ').title()
             self.accuracy = 100
             self.power = 0
             self.pp = 5
             self.effect_chance = None
             self.priority = 0
-            self.damage_class = "physical"
-            self.type = Type("normal")
+            self.damage_class = 'physical'
+            self.type = Type('normal')
 
         self.current_pp = self.pp
 

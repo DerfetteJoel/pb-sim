@@ -1,6 +1,6 @@
-natures = ["hardy", "bold", "modest", "calm", "timid", "lonely", "docile", "mild", "gentle", "hasty", "adamant",
-           "impish", "bashful", "careful", "jolly", "naughty", "lax", "rash", "quirky", "naive", "brave", "relaxed",
-           "quiet", "sassy", "serious"]
+natures = ['hardy', 'bold', 'modest', 'calm', 'timid', 'lonely', 'docile', 'mild', 'gentle', 'hasty', 'adamant',
+           'impish', 'bashful', 'careful', 'jolly', 'naughty', 'lax', 'rash', 'quirky', 'naive', 'brave', 'relaxed',
+           'quiet', 'sassy', 'serious']
 
 
 class Nature:
@@ -8,79 +8,79 @@ class Nature:
         if name in natures:
             self.name = name
         else:
-            self.name = "hardy"
-        if self.name == "hardy":
+            self.name = 'hardy'
+        if self.name == 'hardy':
             self.decreased_stat = None
             self.increased_stat = None
-        elif self.name == "bold":
+        elif self.name == 'bold':
             self.decreased_stat = 1
             self.increased_stat = 2
-        elif self.name == "modest":
+        elif self.name == 'modest':
             self.decreased_stat = 1
             self.increased_stat = 3
-        elif self.name == "calm":
+        elif self.name == 'calm':
             self.decreased_stat = 1
             self.increased_stat = 4
-        elif self.name == "timid":
+        elif self.name == 'timid':
             self.decreased_stat = 1
             self.increased_stat = 5
-        elif self.name == "lonely":
+        elif self.name == 'lonely':
             self.decreased_stat = 2
             self.increased_stat = 1
-        elif self.name == "docile":
+        elif self.name == 'docile':
             self.decreased_stat = None
             self.increased_stat = None
-        elif self.name == "mild":
+        elif self.name == 'mild':
             self.decreased_stat = 2
             self.increased_stat = 3
-        elif self.name == "gentle":
+        elif self.name == 'gentle':
             self.decreased_stat = 2
             self.increased_stat = 4
-        elif self.name == "hasty":
+        elif self.name == 'hasty':
             self.decreased_stat = 2
             self.increased_stat = 5
-        elif self.name == "adamant":
+        elif self.name == 'adamant':
             self.decreased_stat = 3
             self.increased_stat = 1
-        elif self.name == "impish":
+        elif self.name == 'impish':
             self.decreased_stat = 3
             self.increased_stat = 2
-        elif self.name == "bashful":
+        elif self.name == 'bashful':
             self.decreased_stat = None
             self.increased_stat = None
-        elif self.name == "careful":
+        elif self.name == 'careful':
             self.decreased_stat = 3
             self.increased_stat = 4
-        elif self.name == "jolly":
+        elif self.name == 'jolly':
             self.decreased_stat = 3
             self.increased_stat = 5
-        elif self.name == "naughty":
+        elif self.name == 'naughty':
             self.decreased_stat = 4
             self.increased_stat = 1
-        elif self.name == "lax":
+        elif self.name == 'lax':
             self.decreased_stat = 4
             self.increased_stat = 2
-        elif self.name == "rash":
+        elif self.name == 'rash':
             self.decreased_stat = 4
             self.increased_stat = 3
-        elif self.name == "quirky":
+        elif self.name == 'quirky':
             self.decreased_stat = None
             self.increased_stat = None
-        elif self.name == "naive":
+        elif self.name == 'naive':
             self.decreased_stat = 4
             self.increased_stat = 5
-        elif self.name == "brave":
+        elif self.name == 'brave':
             self.decreased_stat = 5
             self.increased_stat = 1
-        elif self.name == "relaxed":
+        elif self.name == 'relaxed':
             self.decreased_stat = 5
             self.increased_stat = 2
-        elif self.name == "quiet":
+        elif self.name == 'quiet':
             self.decreased_stat = 5
             self.increased_stat = 3
-        elif self.name == "sassy":
+        elif self.name == 'sassy':
             self.decreased_stat = 5
             self.increased_stat = 4
-        elif self.name == "serious":
+        elif self.name == 'serious':
             self.decreased_stat = None
             self.increased_stat = None
