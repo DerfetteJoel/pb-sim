@@ -6,6 +6,7 @@ from api.evolution_chain import EvolutionChain
 from api.move import Move
 from api.pokemon import Pokemon
 from api.type import Type
+from api.util import utils
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname('api' + os.path.sep)))
 custom_path = os.path.join(root_dir, 'data', 'custom')  # Path to the directory where all custom data is stored
@@ -26,7 +27,7 @@ def save_custom_pokemon(pkmn: Pokemon):
     unformatted_name = pkmn.name\
         .lower()\
         .replace(' ', '-')
-    index = 808 + custom_pokemon_count()
+    index = utils.TOTAL_POKEMON_COUNT + custom_pokemon_count()
     type_1 = pkmn.types[0].name
     type_2 = 'none'
     if len(pkmn.types) > 1:
@@ -62,7 +63,7 @@ def save_custom_move(move: Move):
     unformatted_name = move.name.lower().replace(' ', '-')
     move_data['moves'].append({
         'name': unformatted_name,
-        'id': 729 + custom_moves_count(),
+        'id': utils.TOTAL_MOVES_COUNT + custom_moves_count(),
         'accuracy': move.accuracy,
         'power': move.power,
         'pp': move.pp,

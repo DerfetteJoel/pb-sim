@@ -8,7 +8,7 @@ from api.move import Move
 from api.nature import Nature, natures
 from api.type import Type
 from api.evolution_chain import EvolutionChain
-from api.util import util
+from api.util import utils
 
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 custom_pokemon = {}
@@ -35,9 +35,9 @@ class Pokemon:
         self.evolves_to = {}
         try:
             raw = client.get_pokemon(name)
-            util.log(raw.name + ' was found in the database!')
+            utils.log(raw.name + ' was found in the database!')
         except InvalidStatusCodeError:
-            util.log(name + ' not found in the database, searching for custom Pokemon...')
+            utils.log(name + ' not found in the database, searching for custom Pokemon...')
             raw = custom_pokemon.get(name)
         if raw is not None:
             # Since the data is stored a bit differently in PokeApis database, the constructor cant use the same
@@ -67,7 +67,7 @@ class Pokemon:
             except AttributeError:
                 # This is used in case the pokemon was not found in the database,
                 # but in the custom dict
-                util.log('Custom Pokemon ' + raw.name + ' found!')
+                utils.log('Custom Pokemon ' + raw.name + ' found!')
                 self.base_stats = raw.base_stats
                 self.types = raw.types
                 self.abilities = raw.abilities
@@ -80,7 +80,7 @@ class Pokemon:
             # If no pokemon in the database matched the request, these values can
             # be set manually or automatically using the constructor parameters.
             # This gives the user the ability to create completely new pokemon.
-            util.log('No custom Pokemon found. Creating a new Pokemon.')
+            utils.log('No custom Pokemon found. Creating a new Pokemon.')
         while '' in self.abilities:
             self.abilities.remove('')  # remove 'empty' abilities
         # These are values that can be different for each pokemon of a species
