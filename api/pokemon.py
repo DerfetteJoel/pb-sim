@@ -31,6 +31,7 @@ class Pokemon:
         self.base_experience = 0
         self.growth_rate = "slow"
         self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
+        self.evolution_chain = EvolutionChain(-1)
         self.evolves_to = {}
         try:
             raw = client.get_pokemon(name)
@@ -143,8 +144,10 @@ class Pokemon:
                             try:
                                 _in = input("Please specify which move shall be forgotten(1-4), "
                                             "leave empty if no move should be forgotten: ")
-                                if _in != '': replace = int(_in)
-                                else: replace = None
+                                if _in != '':
+                                    replace = int(_in)
+                                else:
+                                    replace = None
                                 if (replace is None) or (1 <= replace <= 4):
                                     break
                             except ValueError:
@@ -214,8 +217,16 @@ class Pokemon:
     def try_level_evolution(self):
         if self.evolution_chain.stage == 2:
             return
-        evolution_name = list(self.evolves_to.keys())[0]
-        evolution_level = self.evolves_to[evolution_name]["min_level"]
+        evolution_name = ""
+        try:
+            list(self.evolves_to.keys())[0]
+        except IndexError:
+            pass
+        evolution_level = 0
+        try:
+            self.evolves_to[evolution_name]["min_level"]
+        except KeyError:
+            pass
         if (self.level >= evolution_level) and (evolution_level != 0):
             confirmation = ""
             while (confirmation.lower() != 'a') or (confirmation.lower() != 'b'):
