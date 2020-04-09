@@ -16,9 +16,7 @@ You can use the api directly from the python shell.
 #### Example 1: Creating a Pokemon
 1. Import `Pokemon` from `api.pokemon`.
 2. Create an existing Pokemon by calling its name in the 
-constructor: `bulbasaur = Pokemon("bulbasaur")`. Note: You can also
-pass the id of the pokemon, however that won't work when you want to
-get a custom Pokemon so it's best practice to always use the name.
+constructor: `bulbasaur = Pokemon("bulbasaur")`.
 3. (Optional) Print Pokemon data to the console: `bulbasaur.print()`
 will output formatted information about the Pokemon including its 
 Types and Base Stats.
@@ -52,31 +50,16 @@ values directly in the constructor:
 3. (Optional) Print your new pokemon to the console using
 `custom.print()`.
 
-#### Example 5: Saving custom Pokemon
-When a Pokemon is created, the constructor first searches for a 
-match in PokeAPIs database. If it doesn't find the specified
-Pokemon there, it then searches in a dictionary where all custom
-pokemon you created can be saved.
-1. Import `pokemon` from `api`
-2. Add your custom pokemon to the database by using
-`pokemon.custom_dict["dialga-primal"] = custom`. Make sure the name
-is lowercase, with spaces replaced by hyphens.
-
-The next time you create a Pokemon with the name "dialga-primal",
-The api won't create a brand new Pokemon, but instead instantiate
-a new Pokemon with the stats, types and index of your Pokemon 
-`custom`.
-
-#### Example 6: Saving custom Pokemon to a file
+#### Example 5: Saving custom Pokemon to a file
 When saving custom pokemon to the custom dictionary, all of your
 pokemon will be lost when you close the shell. `pb-sim` also
 provides a way to save Pokemon permanently:
 1. Import `io_utils` from `api.util`
-2. Call `io_utils.save_custom_pokemon(custom, "dialga-primal")`
+2. Call `io_utils.save_custom_pokemon(custom)`
 
 Now, Your pokemon will be saved in a sub-directory 
-`custom/pokemon.data`. It will automatically get a unique ID
-starting at 808. You can load all of your custom Pokemon before
-instantiating new Pokemon and save them to the custom dictionary
-by calling 
-`pokemon.custom_dict = io_utils.get_all_custom_pokemon()`.
+`data/custom/pokemon.json`. It will automatically get a unique 
+ID starting at 808. You can load all of your custom Pokemon 
+before instantiating new Pokemon and save them to the custom 
+dictionary by calling 
+`pokemon.pokemon_data = io_utils.load_all_pokemon()`.
