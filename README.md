@@ -5,6 +5,9 @@ gathers all data from [PokeAPI](https://pokeapi.co/), but is
 flexible enough to allow the user to create new Pokemon, Moves
 and Types.
 
+**Note that this api is still in development, there my be major
+changes at any time!**
+
 A client is planned that makes using the api more user-friendly.
 
 ## Using the api
