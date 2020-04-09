@@ -12,6 +12,11 @@ evolution_details = {
 
 
 class EvolutionChain:
+    """
+    EvolutionChain contains information about all evolutions a pokemon with the matching chain_id can perform.
+    All Pokemon that stem from the same Base Pokemon also share the same evolution chain id.
+    """
+
     def __init__(self, chain_id: int):
         client = pokepy.V2Client()
         self.chain_id = chain_id
@@ -49,6 +54,10 @@ class EvolutionChain:
                 self.stage_2_evolutions = raw.stage_2_evolutions
 
     def set_stage(self, name):
+        """
+        Searches the evolution chain for 'name' and sets the stage accordingly.
+        A pokemon's stage is avalue between 0 and 2.
+        """
         if self.base == name:
             self.stage = 0
         elif name in self.stage_1_evolutions:

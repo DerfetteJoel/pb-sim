@@ -4,6 +4,7 @@ natures = ['hardy', 'bold', 'modest', 'calm', 'timid', 'lonely', 'docile', 'mild
 
 
 class Nature:
+    """A pokemon's nature gives a 10% boost to a single stat and a 10% deficit to another."""
     def __init__(self, name):
         if name in natures:
             self.name = name

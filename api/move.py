@@ -5,12 +5,18 @@ from beckett.exceptions import InvalidStatusCodeError
 from api.type import Type
 from api.util import utils
 
-# This can be filled with custom moves from the outside, for example using IOUtils.get_all_custom_moves()
 move_data = {}
+"""This can be filled with moves from the outside, for example using IOUtils.load_all_moves()"""
 
 
 class Move:
+    """Contains all data and methods needed for a move."""
+
     def __init__(self, name):
+        """
+        Will attempt to load the move specified by 'name' out of 'move_data'.
+        If no matching move could be found, a new move is created.
+        """
         raw = move_data.get(name)
         if raw is not None:
             self.damage_class = raw['damage_class']
@@ -44,8 +50,8 @@ class Move:
     def refill_pp(self):
         self.current_pp = self.pp
 
-    # Returns the effectiveness of the move against a given Pokemon 'pokemon' as a number between 0 and 2
     def get_effectivity(self, pokemon):
+        """Return the effectivity of the move against a given Pokemon 'pokemon' as a number between 0 and 2."""
         effectivity = 1
         for _type in pokemon.types:
             if self.type.name in _type.double_damage_from:

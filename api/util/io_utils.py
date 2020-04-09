@@ -11,15 +11,15 @@ from api.util import utils
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname('api' + os.path.sep)))
 custom_path = os.path.join(root_dir, 'data', 'custom')  # Path to the directory where all custom data is stored
 
-# List of all custom pokemon that will be saved once the function 'save_custom_pokemon' is called
 custom_pokemon_data = {'pokemon': []}
+"""List of all custom pokemon that will be saved once the function 'save_custom_pokemon' is called."""
 
-# List of all custom moves that will be saved once the function 'save_custom_move' is called
 custom_move_data = {'moves': []}
+"""List of all custom moves that will be saved once the function 'save_custom_move' is called."""
 
 
-# Saves the pokemon in a sub-folder. Please make sure you use an unformatted name ('lower-case')
 def save_custom_pokemon(pkmn: Pokemon):
+    """Save the pokemon in a sub-folder."""
     try:
         os.makedirs(custom_path)
     except FileExistsError:
@@ -56,8 +56,8 @@ def save_custom_pokemon(pkmn: Pokemon):
         json.dump(custom_pokemon_data, file, indent=2)
 
 
-# Saves the move in a sub-folder. Please make sure you use an unformatted name ('lower-case')
 def save_custom_move(move: Move):
+    """Save the move in a sub-folder."""
     try:
         os.makedirs(custom_path)
     except FileExistsError:
@@ -79,8 +79,8 @@ def save_custom_move(move: Move):
         json.dump(custom_move_data, file, indent=2)
 
 
-# Load all pokemon from /data/pokemon.json and /data/custom/pokemon.json
 def load_all_pokemon():
+    """Load all pokemon from /data/pokemon.json and /data/custom/pokemon.json."""
     data = {}
     try:
         with open(os.path.join(root_dir, 'data', 'pokemon.json')) as json_data:
@@ -100,8 +100,8 @@ def load_all_pokemon():
     return data
 
 
-# Load all moves from /data/moves.json and /data/custom/moves.json
 def load_all_moves():
+    """Load all moves from /data/moves.json and /data/custom/moves.json."""
     data = {}
     try:
         with open(os.path.join(root_dir, 'data', 'moves.json')) as json_data:
@@ -121,17 +121,16 @@ def load_all_moves():
     return data
 
 
-# Returns the number of custom pokemon, needed for automatically indexing new pokemon
 def custom_pokemon_count():
+    """Return the number of custom pokemon, needed for automatically indexing new pokemon."""
     return len(custom_pokemon_data)
 
 
-# Returns the number of custom moves, needed for automatically indexing new moves
 def custom_moves_count():
+    """Returns the number of custom moves, needed for automatically indexing new moves"""
     return len(custom_move_data)
 
 
-# Deletes all custom pokemon
 def delete_custom_pokemon():
     count = custom_pokemon_count()
     os.remove(os.path.join(custom_path, 'pokemon.json'))

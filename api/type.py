@@ -1,4 +1,5 @@
 class Type:
+    """A pokemon's type determines if attacks against it are going to be effective or not."""
     def __init__(self, name):
         self.name = name
         if name == 'normal':

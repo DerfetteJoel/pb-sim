@@ -10,30 +10,32 @@ from api.type import Type
 from api.evolution_chain import EvolutionChain
 from api.util import utils
 
-# This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
 pokemon_data = {}
+"""This can be filled with pokemon from the outside, for example using IOUtils.load_all_pokemon()"""
 
 
 class Pokemon:
-    # This constructor seems intimidating, but it really isn't doing any magic.
-    # First, it searches the requested Pokemon in PokeAPIs database. If it doesn't find it there,
-    # it looks up the custom pokemon dictionary. If one of these searches is successful, the variable
-    # 'raw' is assigned its data. Since both cases are similar, they are handled in the same if-clause.
-    # If the constructor doesnt find the pokemon either in the database nor in the custom dict, it creates a new
-    # Pokemon.
-    def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type('normal')], index=-1):
-        raw = pokemon_data.get(name)
+    """Contains all data and methods needed for a Pokemon."""
+
+    def __init__(self, name: str, base_stats=[0, 0, 0, 0, 0, 0], types=[Type('normal')], index=-1):
+        """
+        Will attempt to load the Pokemon specified by 'name' out of 'pokemon_data'.
+        If no matching Pokemon could be found, a new Pokemon is created.
+        """
+        raw = pokemon_data.get(name.replace(' ', '-').lower())
         self.evolves_to = {}
+        self.types = []
+        self.abilities = []
         if raw is not None:
             self.id = raw['id']
             self.name = raw['name'].replace('-', ' ').title()
             self.base_stats = raw['base_stats']
-            self.types[0] = Type(raw['types']['type_1'])
-            if raw['type']['type_2'] != 'none':
-                self.types[1] = Type(raw['type']['type_2'])
+            self.types.append(Type(raw['types']['type_1']))
+            if raw['types']['type_2'] != 'none':
+                self.types.append(Type(raw['types']['type_2']))
             for key in raw['abilities']:
                 if raw['abilities'][key] != 'none':
-                    self.abilities.append(raw['abilities']['key'])
+                    self.abilities.append(raw['abilities'][key])
             self.base_experience = raw['base_xp']
             self.growth_rate = raw['growth_rate']
             self.moves = raw['moves']
@@ -57,8 +59,6 @@ class Pokemon:
             self.growth_rate = 'slow'
             self.moves = []
             self.evolution_chain = EvolutionChain(-1)
-        while '' in self.abilities:
-            self.abilities.remove('')  # remove 'empty' abilities
         # These are values that can be different for each pokemon of a species
         self.level = 1
         self.ivs = [0, 0, 0, 0, 0, 0]
@@ -69,13 +69,13 @@ class Pokemon:
         for m in self.moves:
             if m['level_learned_at'] == self.level:
                 self.current_moves.append(Move(m['name']))
-        self.current_xp = self.exp(self.level)
+        self.current_xp = self.calculate_xp(self.level)
         self.current_stats = [0, 0, 0, 0, 0, 0]  # Values that are needed in battle
         self.calculate_stats()
         self.heal()  # Set current stats
 
-    # Use set_level rather than accessing level directly to automatically recalculate stats
-    def set_level(self, level):
+    def set_level(self, level: int):
+        """Set the pokemon's level and automatically recalculate stats."""
         self.level = level
         self.calculate_stats()
         # The following lines ensure that a Pokemon's current stats are recalculated upon the level up,
@@ -85,8 +85,8 @@ class Pokemon:
         self.heal()
         self.current_stats[0] -= hp_diff
 
-    # Adds amount xp to current_xp, calculates if there are any level ups, and checks for any level up moves
-    def add_xp(self, amount):
+    def add_xp(self, amount: int):
+        """Add 'amount' xp to current_xp, calculate if there are any level ups, and check for any level up moves."""
         self.current_xp += amount
         old_stats = []
         for i in self.stats:
@@ -94,7 +94,7 @@ class Pokemon:
         stat_diff = [0, 0, 0, 0, 0, 0]
         old_level = self.level
         new_level = self.level
-        while (self.current_xp > self.exp(new_level)) and (new_level < 100):
+        while (self.current_xp > self.calculate_xp(new_level)) and (new_level < 100):
             new_level += 1
         for i in range(0, new_level - old_level):
             self.set_level(self.level + 1)
@@ -139,13 +139,13 @@ class Pokemon:
                         self.current_moves.append(move)
                         print(self.name + ' learned ' + move.name + '!')
 
-    # Use set_ev rather than accessing ev directly to automatically recalculate stats
-    def set_ev(self, index, value):
+    def set_ev(self, index: int, value: int):
+        """Set the pokemon's evs and automatically recalculate stats."""
         self.evs[index] = value
         self.calculate_stats()
 
-    # Calculates the amount of xp needed to reach the level
-    def exp(self, level):
+    def calculate_xp(self, level: int):
+        """Calculate the amount of xp needed for the level 'level'"""
         if self.growth_rate == 'slow-then-very-fast':
             if level <= 1:
                 return 0
@@ -184,13 +184,13 @@ class Pokemon:
             else:
                 return math.floor((level ** 3) * ((32 + math.floor(level / 2)) / 50))
 
-    # Calculates the xp that self gets for defeating Pokemon other
     def battle_xp(self, other):
+        """Calculate the xp that the pokemon gets for defeating the pokemon 'other'"""
         return math.floor(((other.base_experience * other.level) / 5) *
                           (((2 * other.level + 10) ** 2.5) / ((other.level + self.level + 10) ** 2.5)) + 1)
 
-    # Checks if min_level in evolves_to is sufficient and will attempt an evolution
     def try_level_evolution(self):
+        """Check if min_level in evolves_to is sufficient and attempt an evolution"""
         if self.evolution_chain.stage == 2:
             return
         evolution_name = ''
@@ -229,8 +229,8 @@ class Pokemon:
                 return
             print(self.name + ' did not evolve.')
 
-    # Print formatted information about the Pokemon species on the screen
     def print(self):
+        """Print formatted information about the Pokemon species on the screen."""
         print('_' * 56)
         types = self.types[0].name.capitalize()
         if len(self.types) > 1: types += (', ' + self.types[1].name.capitalize())
@@ -245,6 +245,7 @@ class Pokemon:
     # ========== FUNCTIONS FOR CALCULATING & GENERATING ================================================================
 
     def calculate_stats(self):
+        """calculate the stats of the pokemon using the base_stats, ivs, evs, level and nature."""
         self.stats[0] = math.floor(
             ((2 * self.base_stats[0] + self.ivs[0] + math.floor(self.evs[0] / 4)) * self.level) / 100) + self.level + 10
         for x in range(1, 6):
@@ -255,19 +256,19 @@ class Pokemon:
             elif x == self.nature.decreased_stat:
                 self.stats[x] = math.floor(self.stats[x] * 0.9)
 
-    # Randomly generates all IVs for a pokemon
     def generate_ivs(self):
+        """Randomly generate all IVs for the pokemon."""
         for x in range(0, 6):
             self.ivs[x] = random.randint(0, 31)
         self.calculate_stats()
 
-    # Randomly generate a nature
     def generate_nature(self):
+        """Randomly generate a nature."""
         self.nature = Nature(natures[random.randint(0, len(natures) - 1)])
         self.calculate_stats()
 
-    # All-In-One method for generating all required values for a new pokemon
     def generate(self):
+        """All-In-One method for generating all required values for a new pokemon."""
         self.generate_ivs()
         self.generate_nature()
         self.calculate_stats()
@@ -275,13 +276,12 @@ class Pokemon:
 
     # ========== FUNCTIONS FOR USE IN & AFTER BATTLE ===================================================================
 
-    # Reset all stats
-    # TODO reset pokemon status once implemented
     def heal(self):
+        """Reset current stats to the value of the stats."""
         self.current_stats = self.stats
 
-    # This method is used to perform an attack against a Pokemon 'other' using the Move 'move'
-    def attack(self, other, move):
+    def attack(self, other, move:  Move):
+        """Perform an attack against a Pokemon 'other' using the Move 'move'."""
         print(self.name + ' used ' + move.name + '!')
         if random.randint(1, 100) > move.accuracy:
             print('The opposing ' + other.name + ' avoided the attack!')
