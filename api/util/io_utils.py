@@ -1,12 +1,13 @@
 import os
 import json
 
+from api.evolution_chain import EvolutionChain
 from api.move import Move
 from api.pokemon import Pokemon
 from api.util import utils
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname('api' + os.path.sep)))
-custom_path = os.path.join(root_dir, 'data', 'custom')  # Path to the directory where all custom data is stored
+custom_dir = os.path.join(root_dir, 'data', 'custom')  # Path to the directory where all custom data is stored
 
 custom_pokemon_data = {'pokemon': []}
 """List of all custom pokemon that will be saved once the function 'save_custom_pokemon' is called."""
@@ -14,11 +15,14 @@ custom_pokemon_data = {'pokemon': []}
 custom_move_data = {'moves': []}
 """List of all custom moves that will be saved once the function 'save_custom_move' is called."""
 
+custom_evolution_chain_data = {'evolution_chains': []}
+"""List of all custom evolution chains that will be saved once the function 'save_custom_evolution_chain' is called."""
+
 
 def save_custom_pokemon(pkmn: Pokemon):
     """Save the pokemon in a sub-folder."""
     try:
-        os.makedirs(custom_path)
+        os.makedirs(custom_dir)
     except FileExistsError:
         pass
     unformatted_name = pkmn.name \
@@ -49,14 +53,14 @@ def save_custom_pokemon(pkmn: Pokemon):
         'base_xp': pkmn.base_experience,
         'moves': pkmn.moves
     })
-    with open(os.path.join(custom_path, 'pokemon.json'), 'w') as file:
+    with open(os.path.join(custom_dir, 'pokemon.json'), 'w') as file:
         json.dump(custom_pokemon_data, file, indent=2)
 
 
 def save_custom_move(move: Move):
     """Save the move in a sub-folder."""
     try:
-        os.makedirs(custom_path)
+        os.makedirs(custom_dir)
     except FileExistsError:
         pass
     unformatted_name = move.name.lower().replace(' ', '-')
@@ -72,8 +76,24 @@ def save_custom_move(move: Move):
         'damage_class': move.damage_class,
         'type': move.type.name
     })
-    with open(os.path.join(custom_path, 'moves.json'), 'w') as file:
+    with open(os.path.join(custom_dir, 'moves.json'), 'w') as file:
         json.dump(custom_move_data, file, indent=2)
+
+
+def save_custom_evolution_chain(evo_chain: EvolutionChain):
+    """Save the evolution chain in a sub-folder."""
+    try:
+        os.makedirs(custom_dir)
+    except FileExistsError:
+        pass
+    custom_evolution_chain_data['evolution_chains'].append({
+        'chain_id': evo_chain.chain_id,
+        'base': evo_chain.base,
+        'stage_1_evolutions': evo_chain.stage_1_evolutions,
+        'stage_2_evolutions': evo_chain.stage_2_evolutions
+    })
+    with open(os.path.join(custom_dir, 'evolution_chains.json'), 'w') as file:
+        json.dump(custom_evolution_chain_data, file, indent=2)
 
 
 def load_all_pokemon():
@@ -87,7 +107,7 @@ def load_all_pokemon():
     except FileNotFoundError or UnboundLocalError:
         print('Pokemon data not found (this is bad). Try redownloading the data.')
     try:
-        with open(os.path.join(root_dir, 'data', 'custom', 'pokemon.json')) as json_data:
+        with open(os.path.join(custom_dir, 'pokemon.json')) as json_data:
             raw_custom_data = json.load(json_data)
         for key in raw_custom_data['pokemon']:
             data[key['name']] = key
@@ -108,13 +128,34 @@ def load_all_moves():
     except FileNotFoundError or UnboundLocalError:
         print('Move data not found (this is bad). Try redownloading the data.')
     try:
-        with open(os.path.join(root_dir, 'data', 'custom', 'moves.json')) as json_data:
+        with open(os.path.join(custom_dir, 'moves.json')) as json_data:
             raw_custom_data = json.load(json_data)
         for key in raw_custom_data['moves']:
             data[key['name']] = key
     except FileNotFoundError or UnboundLocalError:
         print('No custom moves found.')
     print('Finished loading ' + str(len(data)) + ' moves.')
+    return data
+
+
+def load_all_evolution_chains():
+    """Load all evolution chains from /data/evolution_chains.json and /data/custom/evolution_chains.json."""
+    data = {}
+    try:
+        with open(os.path.join(root_dir, 'data', 'evolution_chains.json')) as json_data:
+            raw_data = json.load(json_data)
+        for key in raw_data['evolution_chains']:
+            data[key['chain_id']] = key
+    except FileNotFoundError or UnboundLocalError:
+        print('Evolution chain data not found (this is bad). Try redownloading the data.')
+    try:
+        with open(os.path.join(custom_dir, 'evolution_chains.json')) as json_data:
+            raw_data = json.load(json_data)
+        for key in raw_data['evolution_chains']:
+            data[key['chain_id']] = key
+    except FileNotFoundError or UnboundLocalError:
+        print('No custom evolution chains found.')
+    print('Finished loading ' + str(len(data)) + ' evolution chains.')
     return data
 
 
@@ -130,7 +171,7 @@ def custom_moves_count():
 
 def delete_custom_pokemon():
     count = custom_pokemon_count()
-    os.remove(os.path.join(custom_path, 'pokemon.json'))
+    os.remove(os.path.join(custom_dir, 'pokemon.json'))
     if count == 1:
         print('1 Pokemon has been deleted.')
     else:
@@ -139,7 +180,7 @@ def delete_custom_pokemon():
 
 def delete_custom_moves():
     count = custom_moves_count()
-    os.remove(os.path.join(custom_path, 'move.json'))
+    os.remove(os.path.join(custom_dir, 'move.json'))
     if count == 1:
         print('1 move has been deleted.')
     else:
