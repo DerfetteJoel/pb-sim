@@ -6,37 +6,26 @@ from api.type import Type
 from api.util import utils
 
 # This can be filled with custom moves from the outside, for example using IOUtils.get_all_custom_moves()
-custom_moves = {}
+move_data = {}
 
 
 class Move:
     def __init__(self, name):
-        raw = None
-        try:
-            client = pokepy.V2Client()
-            raw = client.get_move(name)
-            utils.log(name + ' found in the database!')
-        except InvalidStatusCodeError:
-            raw = custom_moves.get(name)
+        raw = move_data.get(name)
         if raw is not None:
-            try:
-                self.damage_class = raw.damage_class.name
-                self.type = Type(raw.type.name)
-            except AttributeError:
-                utils.log('Custom move ' + name + ' found!')
-                self.damage_class = raw.damage_class
-                self.type = raw.type
-            self.id = raw.id
-            self.name = raw.name.replace('-', ' ').title()
-            self.accuracy = raw.accuracy
-            self.power = raw.power
-            self.pp = raw.pp
-            self.effect_chance = raw.effect_chance
-            self.priority = raw.priority
+            self.damage_class = raw['damage_class']
+            self.type = Type(raw['type'])
+            self.id = raw['id']
+            self.name = raw['name'].replace('-', ' ').title()
+            self.accuracy = raw['accuracy']
+            self.power = raw['power']
+            self.pp = raw['pp']
+            self.effect_chance = raw['effect_chance']
+            self.priority = raw['priority']
         else:
             # If no move in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new moves.
-            utils.log('No custom move found. Creating a new move')
+            utils.log(name + ' not found. Creating a new move')
             self.id = -1
             self.name = name.replace('-', ' ').title()
             self.accuracy = 100

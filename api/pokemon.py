@@ -11,76 +11,52 @@ from api.evolution_chain import EvolutionChain
 from api.util import utils
 
 # This can be filled with custom pokemon from the outside, for example using IOUtils.get_all_custom_pokemon()
-custom_pokemon = {}
+pokemon_data = {}
 
 
 class Pokemon:
     # This constructor seems intimidating, but it really isn't doing any magic.
     # First, it searches the requested Pokemon in PokeAPIs database. If it doesn't find it there,
-    # It looks up the custom pokemon dictionary. If one of these searches is successful, the variable
+    # it looks up the custom pokemon dictionary. If one of these searches is successful, the variable
     # 'raw' is assigned its data. Since both cases are similar, they are handled in the same if-clause.
     # If the constructor doesnt find the pokemon either in the database nor in the custom dict, it creates a new
     # Pokemon.
     def __init__(self, name, base_stats=[0, 0, 0, 0, 0, 0], types=[Type('normal')], index=-1):
-        client = pokepy.V2Client()
-        self.id = index
-        self.name = name.replace('-', ' ').title()
-        self.base_stats = base_stats
-        self.types = types
-        self.abilities = []
-        self.base_experience = 0
-        self.growth_rate = 'slow'
-        self.moves = []  # Moves will be saved in a dictionary to also save additional data like learn method and level
-        self.evolution_chain = EvolutionChain(-1)
+        raw = pokemon_data.get(name)
         self.evolves_to = {}
-        try:
-            raw = client.get_pokemon(name)
-            utils.log(raw.name + ' was found in the database!')
-        except InvalidStatusCodeError:
-            utils.log(name + ' not found in the database, searching for custom Pokemon...')
-            raw = custom_pokemon.get(name)
         if raw is not None:
-            # Since the data is stored a bit differently in PokeApis database, the constructor cant use the same
-            # code in the 2 scenarios (Pokemon found in database / Pokemon found in custom dict). It will just try
-            # anyways.
-            try:  # This is used in case the pokemon was found in the database
-                self.base_stats = [raw.stats[5].base_stat, raw.stats[4].base_stat, raw.stats[3].base_stat,
-                                   raw.stats[2].base_stat, raw.stats[1].base_stat, raw.stats[0].base_stat]
-                self.types = [Type(raw.types[0].type.name)] if len(raw.types) == 1 \
-                    else [Type(raw.types[0].type.name), Type(raw.types[1].type.name)]
-                for a in raw.abilities:
-                    self.abilities.insert(a.slot, a.ability.name)
-                self.growth_rate = client.get_pokemon_species(name).growth_rate.name
-                for m in raw.moves:
-                    move_name = m.move.name
-                    learn_method = m.version_group_details[0].move_learn_method.name
-                    level_learned_at = m.version_group_details[0].level_learned_at
-                    self.moves.append({'name': move_name, 'learn_method': learn_method,
-                                       'level_learned_at': level_learned_at})
-                chain_id = client.get_pokemon_species(name).evolution_chain.url.split('/')[-2]
-                self.evolution_chain = EvolutionChain(int(chain_id))
-                self.evolution_chain.set_stage(raw.name)
-                if self.evolution_chain.stage == 0:
-                    self.evolves_to = self.evolution_chain.stage_1_evolutions
-                elif self.evolution_chain.stage == 1:
-                    self.evolves_to = self.evolution_chain.stage_2_evolutions
-            except AttributeError:
-                # This is used in case the pokemon was not found in the database,
-                # but in the custom dict
-                utils.log('Custom Pokemon ' + raw.name + ' found!')
-                self.base_stats = raw.base_stats
-                self.types = raw.types
-                self.abilities = raw.abilities
-                self.growth_rate = raw.growth_rate
-                self.moves = raw.moves
-            self.id = raw.id
-            self.name = raw.name.replace('-', ' ').title()
-            self.base_experience = raw.base_experience
+            self.id = raw['id']
+            self.name = raw['name'].replace('-', ' ').title()
+            self.base_stats = raw['base_stats']
+            self.types[0] = Type(raw['types']['type_1'])
+            if raw['type']['type_2'] != 'none':
+                self.types[1] = Type(raw['type']['type_2'])
+            for key in raw['abilities']:
+                if raw['abilities'][key] != 'none':
+                    self.abilities.append(raw['abilities']['key'])
+            self.base_experience = raw['base_xp']
+            self.growth_rate = raw['growth_rate']
+            self.moves = raw['moves']
+            self.evolution_chain = EvolutionChain(raw['evolution_chain_id'])
+            self.evolution_chain.set_stage(raw['name'])
+            if self.evolution_chain.stage == 0:
+                self.evolves_to = self.evolution_chain.stage_1_evolutions
+            elif self.evolution_chain.stage == 1:
+                self.evolves_to = self.evolution_chain.stage_2_evolutions
         else:
             # If no pokemon in the database matched the request, these values can
             # be set manually or automatically using the constructor parameters.
             # This gives the user the ability to create completely new pokemon.
             utils.log('No custom Pokemon found. Creating a new Pokemon.')
+            self.id = index
+            self.name = name.replace('-', ' ').title()
+            self.base_stats = base_stats
+            self.types = types
+            self.abilities = []
+            self.base_experience = 0
+            self.growth_rate = 'slow'
+            self.moves = []
+            self.evolution_chain = EvolutionChain(-1)
         while '' in self.abilities:
             self.abilities.remove('')  # remove 'empty' abilities
         # These are values that can be different for each pokemon of a species
