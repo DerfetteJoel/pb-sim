@@ -1,0 +1,4424 @@
+{
+  "evolution_chains": [
+    {
+      "chain_id": 1,
+      "base": "bulbasaur",
+      "stage_1_evolutions": {
+        "ivysaur": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "venusaur": {
+          "item": null,
+          "min_level": 32
+        }
+      }
+    },
+    {
+      "chain_id": 2,
+      "base": "charmander",
+      "stage_1_evolutions": {
+        "charmeleon": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "charizard": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 3,
+      "base": "squirtle",
+      "stage_1_evolutions": {
+        "wartortle": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "blastoise": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 4,
+      "base": "caterpie",
+      "stage_1_evolutions": {
+        "metapod": {
+          "item": null,
+          "min_level": 7
+        }
+      },
+      "stage_2_evolutions": {
+        "butterfree": {
+          "item": null,
+          "min_level": 10
+        }
+      }
+    },
+    {
+      "chain_id": 5,
+      "base": "weedle",
+      "stage_1_evolutions": {
+        "kakuna": {
+          "item": null,
+          "min_level": 7
+        }
+      },
+      "stage_2_evolutions": {
+        "beedrill": {
+          "item": null,
+          "min_level": 10
+        }
+      }
+    },
+    {
+      "chain_id": 6,
+      "base": "pidgey",
+      "stage_1_evolutions": {
+        "pidgeotto": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {
+        "pidgeot": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 7,
+      "base": "rattata",
+      "stage_1_evolutions": {
+        "raticate": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 8,
+      "base": "spearow",
+      "stage_1_evolutions": {
+        "fearow": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 9,
+      "base": "ekans",
+      "stage_1_evolutions": {
+        "arbok": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 10,
+      "base": "pichu",
+      "stage_1_evolutions": {
+        "pikachu": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "raichu": {
+          "item": "thunder-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 11,
+      "base": "sandshrew",
+      "stage_1_evolutions": {
+        "sandslash": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 12,
+      "base": "nidoran-f",
+      "stage_1_evolutions": {
+        "nidorina": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "nidoqueen": {
+          "item": "moon-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 13,
+      "base": "nidoran-m",
+      "stage_1_evolutions": {
+        "nidorino": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "nidoking": {
+          "item": "moon-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 14,
+      "base": "cleffa",
+      "stage_1_evolutions": {
+        "clefairy": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "clefable": {
+          "item": "moon-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 15,
+      "base": "vulpix",
+      "stage_1_evolutions": {
+        "ninetales": {
+          "item": "fire-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 16,
+      "base": "igglybuff",
+      "stage_1_evolutions": {
+        "jigglypuff": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "wigglytuff": {
+          "item": "moon-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 17,
+      "base": "zubat",
+      "stage_1_evolutions": {
+        "golbat": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {
+        "crobat": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 18,
+      "base": "oddish",
+      "stage_1_evolutions": {
+        "gloom": {
+          "item": null,
+          "min_level": 21
+        }
+      },
+      "stage_2_evolutions": {
+        "vileplume": {
+          "item": "leaf-stone",
+          "min_level": 0
+        },
+        "bellossom": {
+          "item": "leaf-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 19,
+      "base": "paras",
+      "stage_1_evolutions": {
+        "parasect": {
+          "item": null,
+          "min_level": 24
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 20,
+      "base": "venonat",
+      "stage_1_evolutions": {
+        "venomoth": {
+          "item": null,
+          "min_level": 31
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 21,
+      "base": "diglett",
+      "stage_1_evolutions": {
+        "dugtrio": {
+          "item": null,
+          "min_level": 26
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 22,
+      "base": "meowth",
+      "stage_1_evolutions": {
+        "persian": {
+          "item": null,
+          "min_level": 28
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 23,
+      "base": "psyduck",
+      "stage_1_evolutions": {
+        "golduck": {
+          "item": null,
+          "min_level": 33
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 24,
+      "base": "mankey",
+      "stage_1_evolutions": {
+        "primeape": {
+          "item": null,
+          "min_level": 28
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 25,
+      "base": "growlithe",
+      "stage_1_evolutions": {
+        "arcanine": {
+          "item": "fire-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 26,
+      "base": "poliwag",
+      "stage_1_evolutions": {
+        "poliwhirl": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {
+        "poliwrath": {
+          "item": "water-stone",
+          "min_level": 0
+        },
+        "politoed": {
+          "item": "water-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 27,
+      "base": "abra",
+      "stage_1_evolutions": {
+        "kadabra": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "alakazam": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 28,
+      "base": "machop",
+      "stage_1_evolutions": {
+        "machoke": {
+          "item": null,
+          "min_level": 28
+        }
+      },
+      "stage_2_evolutions": {
+        "machamp": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 29,
+      "base": "bellsprout",
+      "stage_1_evolutions": {
+        "weepinbell": {
+          "item": null,
+          "min_level": 21
+        }
+      },
+      "stage_2_evolutions": {
+        "victreebel": {
+          "item": "leaf-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 30,
+      "base": "tentacool",
+      "stage_1_evolutions": {
+        "tentacruel": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 31,
+      "base": "geodude",
+      "stage_1_evolutions": {
+        "graveler": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {
+        "golem": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 32,
+      "base": "ponyta",
+      "stage_1_evolutions": {
+        "rapidash": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 33,
+      "base": "slowpoke",
+      "stage_1_evolutions": {
+        "slowbro": {
+          "item": null,
+          "min_level": 37
+        },
+        "slowking": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 34,
+      "base": "magnemite",
+      "stage_1_evolutions": {
+        "magneton": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {
+        "magnezone": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 35,
+      "base": "farfetchd",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 36,
+      "base": "doduo",
+      "stage_1_evolutions": {
+        "dodrio": {
+          "item": null,
+          "min_level": 31
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 37,
+      "base": "seel",
+      "stage_1_evolutions": {
+        "dewgong": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 38,
+      "base": "grimer",
+      "stage_1_evolutions": {
+        "muk": {
+          "item": null,
+          "min_level": 38
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 39,
+      "base": "shellder",
+      "stage_1_evolutions": {
+        "cloyster": {
+          "item": "water-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 40,
+      "base": "gastly",
+      "stage_1_evolutions": {
+        "haunter": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {
+        "gengar": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 41,
+      "base": "onix",
+      "stage_1_evolutions": {
+        "steelix": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 42,
+      "base": "drowzee",
+      "stage_1_evolutions": {
+        "hypno": {
+          "item": null,
+          "min_level": 26
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 43,
+      "base": "krabby",
+      "stage_1_evolutions": {
+        "kingler": {
+          "item": null,
+          "min_level": 28
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 44,
+      "base": "voltorb",
+      "stage_1_evolutions": {
+        "electrode": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 45,
+      "base": "exeggcute",
+      "stage_1_evolutions": {
+        "exeggutor": {
+          "item": "leaf-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 46,
+      "base": "cubone",
+      "stage_1_evolutions": {
+        "marowak": {
+          "item": null,
+          "min_level": 28
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 47,
+      "base": "tyrogue",
+      "stage_1_evolutions": {
+        "hitmonlee": {
+          "item": null,
+          "min_level": 20
+        },
+        "hitmonchan": {
+          "item": null,
+          "min_level": 20
+        },
+        "hitmontop": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 48,
+      "base": "lickitung",
+      "stage_1_evolutions": {
+        "lickilicky": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 49,
+      "base": "koffing",
+      "stage_1_evolutions": {
+        "weezing": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 50,
+      "base": "rhyhorn",
+      "stage_1_evolutions": {
+        "rhydon": {
+          "item": null,
+          "min_level": 42
+        }
+      },
+      "stage_2_evolutions": {
+        "rhyperior": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 51,
+      "base": "happiny",
+      "stage_1_evolutions": {
+        "chansey": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "blissey": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 52,
+      "base": "tangela",
+      "stage_1_evolutions": {
+        "tangrowth": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 53,
+      "base": "kangaskhan",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 54,
+      "base": "horsea",
+      "stage_1_evolutions": {
+        "seadra": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {
+        "kingdra": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 55,
+      "base": "goldeen",
+      "stage_1_evolutions": {
+        "seaking": {
+          "item": null,
+          "min_level": 33
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 56,
+      "base": "staryu",
+      "stage_1_evolutions": {
+        "starmie": {
+          "item": "water-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 57,
+      "base": "mime-jr",
+      "stage_1_evolutions": {
+        "mr-mime": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 58,
+      "base": "scyther",
+      "stage_1_evolutions": {
+        "scizor": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 59,
+      "base": "smoochum",
+      "stage_1_evolutions": {
+        "jynx": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 60,
+      "base": "elekid",
+      "stage_1_evolutions": {
+        "electabuzz": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {
+        "electivire": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 61,
+      "base": "magby",
+      "stage_1_evolutions": {
+        "magmar": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {
+        "magmortar": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 62,
+      "base": "pinsir",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 63,
+      "base": "tauros",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 64,
+      "base": "magikarp",
+      "stage_1_evolutions": {
+        "gyarados": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 65,
+      "base": "lapras",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 66,
+      "base": "ditto",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 67,
+      "base": "eevee",
+      "stage_1_evolutions": {
+        "vaporeon": {
+          "item": "water-stone",
+          "min_level": 0
+        },
+        "jolteon": {
+          "item": "thunder-stone",
+          "min_level": 0
+        },
+        "flareon": {
+          "item": "fire-stone",
+          "min_level": 0
+        },
+        "espeon": {
+          "item": null,
+          "min_level": 0
+        },
+        "umbreon": {
+          "item": null,
+          "min_level": 0
+        },
+        "leafeon": {
+          "item": null,
+          "min_level": 0
+        },
+        "glaceon": {
+          "item": null,
+          "min_level": 0
+        },
+        "sylveon": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 68,
+      "base": "porygon",
+      "stage_1_evolutions": {
+        "porygon2": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "porygon-z": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 69,
+      "base": "omanyte",
+      "stage_1_evolutions": {
+        "omastar": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 70,
+      "base": "kabuto",
+      "stage_1_evolutions": {
+        "kabutops": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 71,
+      "base": "aerodactyl",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 72,
+      "base": "munchlax",
+      "stage_1_evolutions": {
+        "snorlax": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 73,
+      "base": "articuno",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 74,
+      "base": "zapdos",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 75,
+      "base": "moltres",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 76,
+      "base": "dratini",
+      "stage_1_evolutions": {
+        "dragonair": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {
+        "dragonite": {
+          "item": null,
+          "min_level": 55
+        }
+      }
+    },
+    {
+      "chain_id": 77,
+      "base": "mewtwo",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 78,
+      "base": "mew",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 79,
+      "base": "chikorita",
+      "stage_1_evolutions": {
+        "bayleef": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "meganium": {
+          "item": null,
+          "min_level": 32
+        }
+      }
+    },
+    {
+      "chain_id": 80,
+      "base": "cyndaquil",
+      "stage_1_evolutions": {
+        "quilava": {
+          "item": null,
+          "min_level": 14
+        }
+      },
+      "stage_2_evolutions": {
+        "typhlosion": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 81,
+      "base": "totodile",
+      "stage_1_evolutions": {
+        "croconaw": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {
+        "feraligatr": {
+          "item": null,
+          "min_level": 30
+        }
+      }
+    },
+    {
+      "chain_id": 82,
+      "base": "sentret",
+      "stage_1_evolutions": {
+        "furret": {
+          "item": null,
+          "min_level": 15
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 83,
+      "base": "hoothoot",
+      "stage_1_evolutions": {
+        "noctowl": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 84,
+      "base": "ledyba",
+      "stage_1_evolutions": {
+        "ledian": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 85,
+      "base": "spinarak",
+      "stage_1_evolutions": {
+        "ariados": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 86,
+      "base": "chinchou",
+      "stage_1_evolutions": {
+        "lanturn": {
+          "item": null,
+          "min_level": 27
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 87,
+      "base": "togepi",
+      "stage_1_evolutions": {
+        "togetic": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "togekiss": {
+          "item": "shiny-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 88,
+      "base": "natu",
+      "stage_1_evolutions": {
+        "xatu": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 89,
+      "base": "mareep",
+      "stage_1_evolutions": {
+        "flaaffy": {
+          "item": null,
+          "min_level": 15
+        }
+      },
+      "stage_2_evolutions": {
+        "ampharos": {
+          "item": null,
+          "min_level": 30
+        }
+      }
+    },
+    {
+      "chain_id": 90,
+      "base": "azurill",
+      "stage_1_evolutions": {
+        "marill": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "azumarill": {
+          "item": null,
+          "min_level": 18
+        }
+      }
+    },
+    {
+      "chain_id": 91,
+      "base": "bonsly",
+      "stage_1_evolutions": {
+        "sudowoodo": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 92,
+      "base": "hoppip",
+      "stage_1_evolutions": {
+        "skiploom": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {
+        "jumpluff": {
+          "item": null,
+          "min_level": 27
+        }
+      }
+    },
+    {
+      "chain_id": 93,
+      "base": "aipom",
+      "stage_1_evolutions": {
+        "ambipom": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 94,
+      "base": "sunkern",
+      "stage_1_evolutions": {
+        "sunflora": {
+          "item": "sun-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 95,
+      "base": "yanma",
+      "stage_1_evolutions": {
+        "yanmega": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 96,
+      "base": "wooper",
+      "stage_1_evolutions": {
+        "quagsire": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 97,
+      "base": "murkrow",
+      "stage_1_evolutions": {
+        "honchkrow": {
+          "item": "dusk-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 98,
+      "base": "misdreavus",
+      "stage_1_evolutions": {
+        "mismagius": {
+          "item": "dusk-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 99,
+      "base": "unown",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 100,
+      "base": "wynaut",
+      "stage_1_evolutions": {
+        "wobbuffet": {
+          "item": null,
+          "min_level": 15
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 101,
+      "base": "girafarig",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 102,
+      "base": "pineco",
+      "stage_1_evolutions": {
+        "forretress": {
+          "item": null,
+          "min_level": 31
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 103,
+      "base": "dunsparce",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 104,
+      "base": "gligar",
+      "stage_1_evolutions": {
+        "gliscor": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 105,
+      "base": "snubbull",
+      "stage_1_evolutions": {
+        "granbull": {
+          "item": null,
+          "min_level": 23
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 106,
+      "base": "qwilfish",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 107,
+      "base": "shuckle",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 108,
+      "base": "heracross",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 109,
+      "base": "sneasel",
+      "stage_1_evolutions": {
+        "weavile": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 110,
+      "base": "teddiursa",
+      "stage_1_evolutions": {
+        "ursaring": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 111,
+      "base": "slugma",
+      "stage_1_evolutions": {
+        "magcargo": {
+          "item": null,
+          "min_level": 38
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 112,
+      "base": "swinub",
+      "stage_1_evolutions": {
+        "piloswine": {
+          "item": null,
+          "min_level": 33
+        }
+      },
+      "stage_2_evolutions": {
+        "mamoswine": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 113,
+      "base": "corsola",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 114,
+      "base": "remoraid",
+      "stage_1_evolutions": {
+        "octillery": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 115,
+      "base": "delibird",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 116,
+      "base": "mantyke",
+      "stage_1_evolutions": {
+        "mantine": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 117,
+      "base": "skarmory",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 118,
+      "base": "houndour",
+      "stage_1_evolutions": {
+        "houndoom": {
+          "item": null,
+          "min_level": 24
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 119,
+      "base": "phanpy",
+      "stage_1_evolutions": {
+        "donphan": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 120,
+      "base": "stantler",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 121,
+      "base": "smeargle",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 122,
+      "base": "miltank",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 123,
+      "base": "raikou",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 124,
+      "base": "entei",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 125,
+      "base": "suicune",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 126,
+      "base": "larvitar",
+      "stage_1_evolutions": {
+        "pupitar": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {
+        "tyranitar": {
+          "item": null,
+          "min_level": 55
+        }
+      }
+    },
+    {
+      "chain_id": 127,
+      "base": "lugia",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 128,
+      "base": "ho-oh",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 129,
+      "base": "celebi",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 130,
+      "base": "treecko",
+      "stage_1_evolutions": {
+        "grovyle": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "sceptile": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 131,
+      "base": "torchic",
+      "stage_1_evolutions": {
+        "combusken": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "blaziken": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 132,
+      "base": "mudkip",
+      "stage_1_evolutions": {
+        "marshtomp": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "swampert": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 133,
+      "base": "poochyena",
+      "stage_1_evolutions": {
+        "mightyena": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 134,
+      "base": "zigzagoon",
+      "stage_1_evolutions": {
+        "linoone": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 135,
+      "base": "wurmple",
+      "stage_1_evolutions": {
+        "silcoon": {
+          "item": null,
+          "min_level": 7
+        }
+      },
+      "stage_2_evolutions": {
+        "beautifly": {
+          "item": null,
+          "min_level": 10
+        },
+        "cascoon": {
+          "item": null,
+          "min_level": 10
+        }
+      }
+    },
+    {
+      "chain_id": 136,
+      "base": "lotad",
+      "stage_1_evolutions": {
+        "lombre": {
+          "item": null,
+          "min_level": 14
+        }
+      },
+      "stage_2_evolutions": {
+        "ludicolo": {
+          "item": "water-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 137,
+      "base": "seedot",
+      "stage_1_evolutions": {
+        "nuzleaf": {
+          "item": null,
+          "min_level": 14
+        }
+      },
+      "stage_2_evolutions": {
+        "shiftry": {
+          "item": "leaf-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 138,
+      "base": "taillow",
+      "stage_1_evolutions": {
+        "swellow": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 139,
+      "base": "wingull",
+      "stage_1_evolutions": {
+        "pelipper": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 140,
+      "base": "ralts",
+      "stage_1_evolutions": {
+        "kirlia": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {
+        "gardevoir": {
+          "item": null,
+          "min_level": 30
+        },
+        "gallade": {
+          "item": null,
+          "min_level": 30
+        }
+      }
+    },
+    {
+      "chain_id": 141,
+      "base": "surskit",
+      "stage_1_evolutions": {
+        "masquerain": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 142,
+      "base": "shroomish",
+      "stage_1_evolutions": {
+        "breloom": {
+          "item": null,
+          "min_level": 23
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 143,
+      "base": "slakoth",
+      "stage_1_evolutions": {
+        "vigoroth": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {
+        "slaking": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 144,
+      "base": "nincada",
+      "stage_1_evolutions": {
+        "ninjask": {
+          "item": null,
+          "min_level": 20
+        },
+        "shedinja": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 145,
+      "base": "whismur",
+      "stage_1_evolutions": {
+        "loudred": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {
+        "exploud": {
+          "item": null,
+          "min_level": 40
+        }
+      }
+    },
+    {
+      "chain_id": 146,
+      "base": "makuhita",
+      "stage_1_evolutions": {
+        "hariyama": {
+          "item": null,
+          "min_level": 24
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 147,
+      "base": "nosepass",
+      "stage_1_evolutions": {
+        "probopass": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 148,
+      "base": "skitty",
+      "stage_1_evolutions": {
+        "delcatty": {
+          "item": "moon-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 149,
+      "base": "sableye",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 150,
+      "base": "mawile",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 151,
+      "base": "aron",
+      "stage_1_evolutions": {
+        "lairon": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {
+        "aggron": {
+          "item": null,
+          "min_level": 42
+        }
+      }
+    },
+    {
+      "chain_id": 152,
+      "base": "meditite",
+      "stage_1_evolutions": {
+        "medicham": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 153,
+      "base": "electrike",
+      "stage_1_evolutions": {
+        "manectric": {
+          "item": null,
+          "min_level": 26
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 154,
+      "base": "plusle",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 155,
+      "base": "minun",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 156,
+      "base": "volbeat",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 157,
+      "base": "illumise",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 158,
+      "base": "budew",
+      "stage_1_evolutions": {
+        "roselia": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {
+        "roserade": {
+          "item": "shiny-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 159,
+      "base": "gulpin",
+      "stage_1_evolutions": {
+        "swalot": {
+          "item": null,
+          "min_level": 26
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 160,
+      "base": "carvanha",
+      "stage_1_evolutions": {
+        "sharpedo": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 161,
+      "base": "wailmer",
+      "stage_1_evolutions": {
+        "wailord": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 162,
+      "base": "numel",
+      "stage_1_evolutions": {
+        "camerupt": {
+          "item": null,
+          "min_level": 33
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 163,
+      "base": "torkoal",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 164,
+      "base": "spoink",
+      "stage_1_evolutions": {
+        "grumpig": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 165,
+      "base": "spinda",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 166,
+      "base": "trapinch",
+      "stage_1_evolutions": {
+        "vibrava": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {
+        "flygon": {
+          "item": null,
+          "min_level": 45
+        }
+      }
+    },
+    {
+      "chain_id": 167,
+      "base": "cacnea",
+      "stage_1_evolutions": {
+        "cacturne": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 168,
+      "base": "swablu",
+      "stage_1_evolutions": {
+        "altaria": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 169,
+      "base": "zangoose",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 170,
+      "base": "seviper",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 171,
+      "base": "lunatone",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 172,
+      "base": "solrock",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 173,
+      "base": "barboach",
+      "stage_1_evolutions": {
+        "whiscash": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 174,
+      "base": "corphish",
+      "stage_1_evolutions": {
+        "crawdaunt": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 175,
+      "base": "baltoy",
+      "stage_1_evolutions": {
+        "claydol": {
+          "item": null,
+          "min_level": 36
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 176,
+      "base": "lileep",
+      "stage_1_evolutions": {
+        "cradily": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 177,
+      "base": "anorith",
+      "stage_1_evolutions": {
+        "armaldo": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 178,
+      "base": "feebas",
+      "stage_1_evolutions": {
+        "milotic": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 179,
+      "base": "castform",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 180,
+      "base": "kecleon",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 181,
+      "base": "shuppet",
+      "stage_1_evolutions": {
+        "banette": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 182,
+      "base": "duskull",
+      "stage_1_evolutions": {
+        "dusclops": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {
+        "dusknoir": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 183,
+      "base": "tropius",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 184,
+      "base": "chingling",
+      "stage_1_evolutions": {
+        "chimecho": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 185,
+      "base": "absol",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 186,
+      "base": "snorunt",
+      "stage_1_evolutions": {
+        "glalie": {
+          "item": null,
+          "min_level": 42
+        },
+        "froslass": {
+          "item": "dawn-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 187,
+      "base": "spheal",
+      "stage_1_evolutions": {
+        "sealeo": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {
+        "walrein": {
+          "item": null,
+          "min_level": 44
+        }
+      }
+    },
+    {
+      "chain_id": 188,
+      "base": "clamperl",
+      "stage_1_evolutions": {
+        "huntail": {
+          "item": null,
+          "min_level": 0
+        },
+        "gorebyss": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 189,
+      "base": "relicanth",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 190,
+      "base": "luvdisc",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 191,
+      "base": "bagon",
+      "stage_1_evolutions": {
+        "shelgon": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {
+        "salamence": {
+          "item": null,
+          "min_level": 50
+        }
+      }
+    },
+    {
+      "chain_id": 192,
+      "base": "beldum",
+      "stage_1_evolutions": {
+        "metang": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {
+        "metagross": {
+          "item": null,
+          "min_level": 45
+        }
+      }
+    },
+    {
+      "chain_id": 193,
+      "base": "regirock",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 194,
+      "base": "regice",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 195,
+      "base": "registeel",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 196,
+      "base": "latias",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 197,
+      "base": "latios",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 198,
+      "base": "kyogre",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 199,
+      "base": "groudon",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 200,
+      "base": "rayquaza",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 201,
+      "base": "jirachi",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 202,
+      "base": "deoxys",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 203,
+      "base": "turtwig",
+      "stage_1_evolutions": {
+        "grotle": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {
+        "torterra": {
+          "item": null,
+          "min_level": 32
+        }
+      }
+    },
+    {
+      "chain_id": 204,
+      "base": "chimchar",
+      "stage_1_evolutions": {
+        "monferno": {
+          "item": null,
+          "min_level": 14
+        }
+      },
+      "stage_2_evolutions": {
+        "infernape": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 205,
+      "base": "piplup",
+      "stage_1_evolutions": {
+        "prinplup": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "empoleon": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 206,
+      "base": "starly",
+      "stage_1_evolutions": {
+        "staravia": {
+          "item": null,
+          "min_level": 14
+        }
+      },
+      "stage_2_evolutions": {
+        "staraptor": {
+          "item": null,
+          "min_level": 34
+        }
+      }
+    },
+    {
+      "chain_id": 207,
+      "base": "bidoof",
+      "stage_1_evolutions": {
+        "bibarel": {
+          "item": null,
+          "min_level": 15
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 208,
+      "base": "kricketot",
+      "stage_1_evolutions": {
+        "kricketune": {
+          "item": null,
+          "min_level": 10
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 209,
+      "base": "shinx",
+      "stage_1_evolutions": {
+        "luxio": {
+          "item": null,
+          "min_level": 15
+        }
+      },
+      "stage_2_evolutions": {
+        "luxray": {
+          "item": null,
+          "min_level": 30
+        }
+      }
+    },
+    {
+      "chain_id": 210,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 211,
+      "base": "cranidos",
+      "stage_1_evolutions": {
+        "rampardos": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 212,
+      "base": "shieldon",
+      "stage_1_evolutions": {
+        "bastiodon": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 213,
+      "base": "burmy",
+      "stage_1_evolutions": {
+        "wormadam": {
+          "item": null,
+          "min_level": 20
+        },
+        "mothim": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 214,
+      "base": "combee",
+      "stage_1_evolutions": {
+        "vespiquen": {
+          "item": null,
+          "min_level": 21
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 215,
+      "base": "pachirisu",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 216,
+      "base": "buizel",
+      "stage_1_evolutions": {
+        "floatzel": {
+          "item": null,
+          "min_level": 26
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 217,
+      "base": "cherubi",
+      "stage_1_evolutions": {
+        "cherrim": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 218,
+      "base": "shellos",
+      "stage_1_evolutions": {
+        "gastrodon": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 219,
+      "base": "drifloon",
+      "stage_1_evolutions": {
+        "drifblim": {
+          "item": null,
+          "min_level": 28
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 220,
+      "base": "buneary",
+      "stage_1_evolutions": {
+        "lopunny": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 221,
+      "base": "glameow",
+      "stage_1_evolutions": {
+        "purugly": {
+          "item": null,
+          "min_level": 38
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 222,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 223,
+      "base": "stunky",
+      "stage_1_evolutions": {
+        "skuntank": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 224,
+      "base": "bronzor",
+      "stage_1_evolutions": {
+        "bronzong": {
+          "item": null,
+          "min_level": 33
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 225,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 226,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 227,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 228,
+      "base": "chatot",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 229,
+      "base": "spiritomb",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 230,
+      "base": "gible",
+      "stage_1_evolutions": {
+        "gabite": {
+          "item": null,
+          "min_level": 24
+        }
+      },
+      "stage_2_evolutions": {
+        "garchomp": {
+          "item": null,
+          "min_level": 48
+        }
+      }
+    },
+    {
+      "chain_id": 231,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 232,
+      "base": "riolu",
+      "stage_1_evolutions": {
+        "lucario": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 233,
+      "base": "hippopotas",
+      "stage_1_evolutions": {
+        "hippowdon": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 234,
+      "base": "skorupi",
+      "stage_1_evolutions": {
+        "drapion": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 235,
+      "base": "croagunk",
+      "stage_1_evolutions": {
+        "toxicroak": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 236,
+      "base": "carnivine",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 237,
+      "base": "finneon",
+      "stage_1_evolutions": {
+        "lumineon": {
+          "item": null,
+          "min_level": 31
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 238,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 239,
+      "base": "snover",
+      "stage_1_evolutions": {
+        "abomasnow": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 240,
+      "base": "rotom",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 241,
+      "base": "uxie",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 242,
+      "base": "mesprit",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 243,
+      "base": "azelf",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 244,
+      "base": "dialga",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 245,
+      "base": "palkia",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 246,
+      "base": "heatran",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 247,
+      "base": "regigigas",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 248,
+      "base": "giratina",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 249,
+      "base": "cresselia",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 250,
+      "base": "manaphy",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 251,
+      "base": null,
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 252,
+      "base": "darkrai",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 253,
+      "base": "shaymin",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 254,
+      "base": "arceus",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 255,
+      "base": "victini",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 256,
+      "base": "snivy",
+      "stage_1_evolutions": {
+        "servine": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "serperior": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 257,
+      "base": "tepig",
+      "stage_1_evolutions": {
+        "pignite": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "emboar": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 258,
+      "base": "oshawott",
+      "stage_1_evolutions": {
+        "dewott": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "samurott": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 259,
+      "base": "patrat",
+      "stage_1_evolutions": {
+        "watchog": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 260,
+      "base": "lillipup",
+      "stage_1_evolutions": {
+        "herdier": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "stoutland": {
+          "item": null,
+          "min_level": 32
+        }
+      }
+    },
+    {
+      "chain_id": 261,
+      "base": "purrloin",
+      "stage_1_evolutions": {
+        "liepard": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 262,
+      "base": "pansage",
+      "stage_1_evolutions": {
+        "simisage": {
+          "item": "leaf-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 263,
+      "base": "pansear",
+      "stage_1_evolutions": {
+        "simisear": {
+          "item": "fire-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 264,
+      "base": "panpour",
+      "stage_1_evolutions": {
+        "simipour": {
+          "item": "water-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 265,
+      "base": "munna",
+      "stage_1_evolutions": {
+        "musharna": {
+          "item": "moon-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 266,
+      "base": "pidove",
+      "stage_1_evolutions": {
+        "tranquill": {
+          "item": null,
+          "min_level": 21
+        }
+      },
+      "stage_2_evolutions": {
+        "unfezant": {
+          "item": null,
+          "min_level": 32
+        }
+      }
+    },
+    {
+      "chain_id": 267,
+      "base": "blitzle",
+      "stage_1_evolutions": {
+        "zebstrika": {
+          "item": null,
+          "min_level": 27
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 268,
+      "base": "roggenrola",
+      "stage_1_evolutions": {
+        "boldore": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {
+        "gigalith": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 269,
+      "base": "woobat",
+      "stage_1_evolutions": {
+        "swoobat": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 270,
+      "base": "drilbur",
+      "stage_1_evolutions": {
+        "excadrill": {
+          "item": null,
+          "min_level": 31
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 271,
+      "base": "audino",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 272,
+      "base": "timburr",
+      "stage_1_evolutions": {
+        "gurdurr": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {
+        "conkeldurr": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 273,
+      "base": "tympole",
+      "stage_1_evolutions": {
+        "palpitoad": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {
+        "seismitoad": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 274,
+      "base": "throh",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 275,
+      "base": "sawk",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 276,
+      "base": "sewaddle",
+      "stage_1_evolutions": {
+        "swadloon": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {
+        "leavanny": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 277,
+      "base": "venipede",
+      "stage_1_evolutions": {
+        "whirlipede": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {
+        "scolipede": {
+          "item": null,
+          "min_level": 30
+        }
+      }
+    },
+    {
+      "chain_id": 278,
+      "base": "cottonee",
+      "stage_1_evolutions": {
+        "whimsicott": {
+          "item": "sun-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 279,
+      "base": "petilil",
+      "stage_1_evolutions": {
+        "lilligant": {
+          "item": "sun-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 280,
+      "base": "basculin",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 281,
+      "base": "sandile",
+      "stage_1_evolutions": {
+        "krokorok": {
+          "item": null,
+          "min_level": 29
+        }
+      },
+      "stage_2_evolutions": {
+        "krookodile": {
+          "item": null,
+          "min_level": 40
+        }
+      }
+    },
+    {
+      "chain_id": 282,
+      "base": "darumaka",
+      "stage_1_evolutions": {
+        "darmanitan": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 283,
+      "base": "maractus",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 284,
+      "base": "dwebble",
+      "stage_1_evolutions": {
+        "crustle": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 285,
+      "base": "scraggy",
+      "stage_1_evolutions": {
+        "scrafty": {
+          "item": null,
+          "min_level": 39
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 286,
+      "base": "sigilyph",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 287,
+      "base": "yamask",
+      "stage_1_evolutions": {
+        "cofagrigus": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 288,
+      "base": "tirtouga",
+      "stage_1_evolutions": {
+        "carracosta": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 289,
+      "base": "archen",
+      "stage_1_evolutions": {
+        "archeops": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 290,
+      "base": "trubbish",
+      "stage_1_evolutions": {
+        "garbodor": {
+          "item": null,
+          "min_level": 36
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 291,
+      "base": "zorua",
+      "stage_1_evolutions": {
+        "zoroark": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 292,
+      "base": "minccino",
+      "stage_1_evolutions": {
+        "cinccino": {
+          "item": "shiny-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 293,
+      "base": "gothita",
+      "stage_1_evolutions": {
+        "gothorita": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {
+        "gothitelle": {
+          "item": null,
+          "min_level": 41
+        }
+      }
+    },
+    {
+      "chain_id": 294,
+      "base": "solosis",
+      "stage_1_evolutions": {
+        "duosion": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {
+        "reuniclus": {
+          "item": null,
+          "min_level": 41
+        }
+      }
+    },
+    {
+      "chain_id": 295,
+      "base": "ducklett",
+      "stage_1_evolutions": {
+        "swanna": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 296,
+      "base": "vanillite",
+      "stage_1_evolutions": {
+        "vanillish": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {
+        "vanilluxe": {
+          "item": null,
+          "min_level": 47
+        }
+      }
+    },
+    {
+      "chain_id": 297,
+      "base": "deerling",
+      "stage_1_evolutions": {
+        "sawsbuck": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 298,
+      "base": "emolga",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 299,
+      "base": "karrablast",
+      "stage_1_evolutions": {
+        "escavalier": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 300,
+      "base": "foongus",
+      "stage_1_evolutions": {
+        "amoonguss": {
+          "item": null,
+          "min_level": 39
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 301,
+      "base": "frillish",
+      "stage_1_evolutions": {
+        "jellicent": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 302,
+      "base": "alomomola",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 303,
+      "base": "joltik",
+      "stage_1_evolutions": {
+        "galvantula": {
+          "item": null,
+          "min_level": 36
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 304,
+      "base": "ferroseed",
+      "stage_1_evolutions": {
+        "ferrothorn": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 305,
+      "base": "klink",
+      "stage_1_evolutions": {
+        "klang": {
+          "item": null,
+          "min_level": 38
+        }
+      },
+      "stage_2_evolutions": {
+        "klinklang": {
+          "item": null,
+          "min_level": 49
+        }
+      }
+    },
+    {
+      "chain_id": 306,
+      "base": "tynamo",
+      "stage_1_evolutions": {
+        "eelektrik": {
+          "item": null,
+          "min_level": 39
+        }
+      },
+      "stage_2_evolutions": {
+        "eelektross": {
+          "item": "thunder-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 307,
+      "base": "elgyem",
+      "stage_1_evolutions": {
+        "beheeyem": {
+          "item": null,
+          "min_level": 42
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 308,
+      "base": "litwick",
+      "stage_1_evolutions": {
+        "lampent": {
+          "item": null,
+          "min_level": 41
+        }
+      },
+      "stage_2_evolutions": {
+        "chandelure": {
+          "item": "dusk-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 309,
+      "base": "axew",
+      "stage_1_evolutions": {
+        "fraxure": {
+          "item": null,
+          "min_level": 38
+        }
+      },
+      "stage_2_evolutions": {
+        "haxorus": {
+          "item": null,
+          "min_level": 48
+        }
+      }
+    },
+    {
+      "chain_id": 310,
+      "base": "cubchoo",
+      "stage_1_evolutions": {
+        "beartic": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 311,
+      "base": "cryogonal",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 312,
+      "base": "shelmet",
+      "stage_1_evolutions": {
+        "accelgor": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 313,
+      "base": "stunfisk",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 314,
+      "base": "mienfoo",
+      "stage_1_evolutions": {
+        "mienshao": {
+          "item": null,
+          "min_level": 50
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 315,
+      "base": "druddigon",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 316,
+      "base": "golett",
+      "stage_1_evolutions": {
+        "golurk": {
+          "item": null,
+          "min_level": 43
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 317,
+      "base": "pawniard",
+      "stage_1_evolutions": {
+        "bisharp": {
+          "item": null,
+          "min_level": 52
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 318,
+      "base": "bouffalant",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 319,
+      "base": "rufflet",
+      "stage_1_evolutions": {
+        "braviary": {
+          "item": null,
+          "min_level": 54
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 320,
+      "base": "vullaby",
+      "stage_1_evolutions": {
+        "mandibuzz": {
+          "item": null,
+          "min_level": 54
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 321,
+      "base": "heatmor",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 322,
+      "base": "durant",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 323,
+      "base": "deino",
+      "stage_1_evolutions": {
+        "zweilous": {
+          "item": null,
+          "min_level": 50
+        }
+      },
+      "stage_2_evolutions": {
+        "hydreigon": {
+          "item": null,
+          "min_level": 64
+        }
+      }
+    },
+    {
+      "chain_id": 324,
+      "base": "larvesta",
+      "stage_1_evolutions": {
+        "volcarona": {
+          "item": null,
+          "min_level": 59
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 325,
+      "base": "cobalion",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 326,
+      "base": "terrakion",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 327,
+      "base": "virizion",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 328,
+      "base": "tornadus",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 329,
+      "base": "thundurus",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 330,
+      "base": "reshiram",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 331,
+      "base": "zekrom",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 332,
+      "base": "landorus",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 333,
+      "base": "kyurem",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 334,
+      "base": "keldeo",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 335,
+      "base": "meloetta",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 336,
+      "base": "genesect",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 337,
+      "base": "chespin",
+      "stage_1_evolutions": {
+        "quilladin": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "chesnaught": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 338,
+      "base": "fennekin",
+      "stage_1_evolutions": {
+        "braixen": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "delphox": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 339,
+      "base": "froakie",
+      "stage_1_evolutions": {
+        "frogadier": {
+          "item": null,
+          "min_level": 16
+        }
+      },
+      "stage_2_evolutions": {
+        "greninja": {
+          "item": null,
+          "min_level": 36
+        }
+      }
+    },
+    {
+      "chain_id": 340,
+      "base": "bunnelby",
+      "stage_1_evolutions": {
+        "diggersby": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 341,
+      "base": "fletchling",
+      "stage_1_evolutions": {
+        "fletchinder": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "talonflame": {
+          "item": null,
+          "min_level": 35
+        }
+      }
+    },
+    {
+      "chain_id": 342,
+      "base": "scatterbug",
+      "stage_1_evolutions": {
+        "spewpa": {
+          "item": null,
+          "min_level": 9
+        }
+      },
+      "stage_2_evolutions": {
+        "vivillon": {
+          "item": null,
+          "min_level": 12
+        }
+      }
+    },
+    {
+      "chain_id": 343,
+      "base": "litleo",
+      "stage_1_evolutions": {
+        "pyroar": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 344,
+      "base": "flabebe",
+      "stage_1_evolutions": {
+        "floette": {
+          "item": null,
+          "min_level": 19
+        }
+      },
+      "stage_2_evolutions": {
+        "florges": {
+          "item": "shiny-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 345,
+      "base": "skiddo",
+      "stage_1_evolutions": {
+        "gogoat": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 346,
+      "base": "pancham",
+      "stage_1_evolutions": {
+        "pangoro": {
+          "item": null,
+          "min_level": 32
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 347,
+      "base": "furfrou",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 348,
+      "base": "espurr",
+      "stage_1_evolutions": {
+        "meowstic": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 349,
+      "base": "honedge",
+      "stage_1_evolutions": {
+        "doublade": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {
+        "aegislash": {
+          "item": "dusk-stone",
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 350,
+      "base": "spritzee",
+      "stage_1_evolutions": {
+        "aromatisse": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 351,
+      "base": "swirlix",
+      "stage_1_evolutions": {
+        "slurpuff": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 352,
+      "base": "inkay",
+      "stage_1_evolutions": {
+        "malamar": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 353,
+      "base": "binacle",
+      "stage_1_evolutions": {
+        "barbaracle": {
+          "item": null,
+          "min_level": 39
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 354,
+      "base": "skrelp",
+      "stage_1_evolutions": {
+        "dragalge": {
+          "item": null,
+          "min_level": 48
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 355,
+      "base": "clauncher",
+      "stage_1_evolutions": {
+        "clawitzer": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 356,
+      "base": "helioptile",
+      "stage_1_evolutions": {
+        "heliolisk": {
+          "item": "sun-stone",
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 357,
+      "base": "tyrunt",
+      "stage_1_evolutions": {
+        "tyrantrum": {
+          "item": null,
+          "min_level": 39
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 358,
+      "base": "amaura",
+      "stage_1_evolutions": {
+        "aurorus": {
+          "item": null,
+          "min_level": 39
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 359,
+      "base": "hawlucha",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 360,
+      "base": "dedenne",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 361,
+      "base": "carbink",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 362,
+      "base": "goomy",
+      "stage_1_evolutions": {
+        "sliggoo": {
+          "item": null,
+          "min_level": 40
+        }
+      },
+      "stage_2_evolutions": {
+        "goodra": {
+          "item": null,
+          "min_level": 50
+        }
+      }
+    },
+    {
+      "chain_id": 363,
+      "base": "klefki",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 364,
+      "base": "phantump",
+      "stage_1_evolutions": {
+        "trevenant": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 365,
+      "base": "pumpkaboo",
+      "stage_1_evolutions": {
+        "gourgeist": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 366,
+      "base": "bergmite",
+      "stage_1_evolutions": {
+        "avalugg": {
+          "item": null,
+          "min_level": 37
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 367,
+      "base": "noibat",
+      "stage_1_evolutions": {
+        "noivern": {
+          "item": null,
+          "min_level": 48
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 368,
+      "base": "xerneas",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 369,
+      "base": "yveltal",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 370,
+      "base": "zygarde",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 371,
+      "base": "diancie",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 372,
+      "base": "hoopa",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 373,
+      "base": "volcanion",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 374,
+      "base": "rowlet",
+      "stage_1_evolutions": {
+        "dartrix": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "decidueye": {
+          "item": null,
+          "min_level": 34
+        }
+      }
+    },
+    {
+      "chain_id": 375,
+      "base": "litten",
+      "stage_1_evolutions": {
+        "torracat": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "incineroar": {
+          "item": null,
+          "min_level": 34
+        }
+      }
+    },
+    {
+      "chain_id": 376,
+      "base": "popplio",
+      "stage_1_evolutions": {
+        "brionne": {
+          "item": null,
+          "min_level": 17
+        }
+      },
+      "stage_2_evolutions": {
+        "primarina": {
+          "item": null,
+          "min_level": 34
+        }
+      }
+    },
+    {
+      "chain_id": 377,
+      "base": "pikipek",
+      "stage_1_evolutions": {
+        "trumbeak": {
+          "item": null,
+          "min_level": 14
+        }
+      },
+      "stage_2_evolutions": {
+        "toucannon": {
+          "item": null,
+          "min_level": 28
+        }
+      }
+    },
+    {
+      "chain_id": 378,
+      "base": "yungoos",
+      "stage_1_evolutions": {
+        "gumshoos": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 379,
+      "base": "grubbin",
+      "stage_1_evolutions": {
+        "charjabug": {
+          "item": null,
+          "min_level": 20
+        }
+      },
+      "stage_2_evolutions": {
+        "vikavolt": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 380,
+      "base": "crabrawler",
+      "stage_1_evolutions": {
+        "crabominable": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 381,
+      "base": "oricorio",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 382,
+      "base": "cutiefly",
+      "stage_1_evolutions": {
+        "ribombee": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 383,
+      "base": "rockruff",
+      "stage_1_evolutions": {
+        "lycanroc": {
+          "item": null,
+          "min_level": 25
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 384,
+      "base": "wishiwashi",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 385,
+      "base": "mareanie",
+      "stage_1_evolutions": {
+        "toxapex": {
+          "item": null,
+          "min_level": 38
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 386,
+      "base": "mudbray",
+      "stage_1_evolutions": {
+        "mudsdale": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 387,
+      "base": "dewpider",
+      "stage_1_evolutions": {
+        "araquanid": {
+          "item": null,
+          "min_level": 22
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 388,
+      "base": "fomantis",
+      "stage_1_evolutions": {
+        "lurantis": {
+          "item": null,
+          "min_level": 34
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 389,
+      "base": "morelull",
+      "stage_1_evolutions": {
+        "shiinotic": {
+          "item": null,
+          "min_level": 24
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 390,
+      "base": "salandit",
+      "stage_1_evolutions": {
+        "salazzle": {
+          "item": null,
+          "min_level": 33
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 391,
+      "base": "stufful",
+      "stage_1_evolutions": {
+        "bewear": {
+          "item": null,
+          "min_level": 27
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 392,
+      "base": "bounsweet",
+      "stage_1_evolutions": {
+        "steenee": {
+          "item": null,
+          "min_level": 18
+        }
+      },
+      "stage_2_evolutions": {
+        "tsareena": {
+          "item": null,
+          "min_level": 0
+        }
+      }
+    },
+    {
+      "chain_id": 393,
+      "base": "comfey",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 394,
+      "base": "oranguru",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 395,
+      "base": "passimian",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 396,
+      "base": "wimpod",
+      "stage_1_evolutions": {
+        "golisopod": {
+          "item": null,
+          "min_level": 30
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 397,
+      "base": "sandygast",
+      "stage_1_evolutions": {
+        "palossand": {
+          "item": null,
+          "min_level": 42
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 398,
+      "base": "pyukumuku",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 399,
+      "base": "type-null",
+      "stage_1_evolutions": {
+        "silvally": {
+          "item": null,
+          "min_level": 0
+        }
+      },
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 400,
+      "base": "minior",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 401,
+      "base": "komala",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 402,
+      "base": "turtonator",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 403,
+      "base": "togedemaru",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 404,
+      "base": "mimikyu",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 405,
+      "base": "bruxish",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 406,
+      "base": "drampa",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 407,
+      "base": "dhelmise",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 408,
+      "base": "jangmo-o",
+      "stage_1_evolutions": {
+        "hakamo-o": {
+          "item": null,
+          "min_level": 35
+        }
+      },
+      "stage_2_evolutions": {
+        "kommo-o": {
+          "item": null,
+          "min_level": 45
+        }
+      }
+    },
+    {
+      "chain_id": 409,
+      "base": "tapu-koko",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 410,
+      "base": "tapu-lele",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 411,
+      "base": "tapu-bulu",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 412,
+      "base": "tapu-fini",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 413,
+      "base": "cosmog",
+      "stage_1_evolutions": {
+        "cosmoem": {
+          "item": null,
+          "min_level": 43
+        }
+      },
+      "stage_2_evolutions": {
+        "solgaleo": {
+          "item": null,
+          "min_level": 53
+        },
+        "lunala": {
+          "item": null,
+          "min_level": 53
+        }
+      }
+    },
+    {
+      "chain_id": 414,
+      "base": "nihilego",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 415,
+      "base": "buzzwole",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 416,
+      "base": "pheromosa",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 417,
+      "base": "xurkitree",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 418,
+      "base": "celesteela",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    },
+    {
+      "chain_id": 419,
+      "base": "kartana",
+      "stage_1_evolutions": {},
+      "stage_2_evolutions": {}
+    }
+  ]
+}
