@@ -1,9 +1,5 @@
-import copy
-
-import pokepy
-from beckett.exceptions import InvalidStatusCodeError
-
 evolution_chain_data = {}
+"""This can be filled with evolution chains from the outside, for example using IOUtils.load_all_evolution_chains()"""
 
 evolution_details = {
     'item': None,
@@ -18,6 +14,10 @@ class EvolutionChain:
     """
 
     def __init__(self, chain_id: int):
+        """
+        Will attempt to load the evolution chain specified by 'name' out of 'evolution_chain_data'.
+        If no matching evolution chain could be found, a new evolution chain is created.
+        """
         self.chain_id = chain_id
         self.base = None
         self.stage_1_evolutions = {}
