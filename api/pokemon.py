@@ -194,12 +194,12 @@ class Pokemon:
             return
         evolution_name = ''
         try:
-            list(self.evolves_to.keys())[0]
+            evolution_name = list(self.evolves_to.keys())[0]
         except IndexError:
             pass
         evolution_level = 0
         try:
-            self.evolves_to[evolution_name]['min_level']
+            evolution_level = self.evolves_to[evolution_name]['min_level']
         except KeyError:
             pass
         if (self.level >= evolution_level) and (evolution_level != 0):
