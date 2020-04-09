@@ -65,7 +65,10 @@ class Pokemon:
         self.current_moves = []
         for m in self.moves:
             if m['level_learned_at'] == self.level:
-                self.current_moves.append(Move(m['name']))
+                if len(self.current_moves) < 4:
+                    self.current_moves.append(Move(m['name']))
+                else:
+                    self.current_moves[random.randint(0, 3)] = Move(m['name'])
         self.current_xp = self.calculate_xp(self.level)
         self.current_stats = [0, 0, 0, 0, 0, 0]  # Values that are needed in battle
         self.calculate_stats()
@@ -95,10 +98,10 @@ class Pokemon:
             new_level += 1
         for i in range(0, new_level - old_level):
             self.set_level(self.level + 1)
-            print(self.name + ' reached Level ' + str(self.level) + '! (', end='')
+            print(f'{self.name} reached Level {str(self.level)}! (', end='')
             for j in range(0, 6):
                 stat_diff[j] = self.stats[j] - old_stats[j]
-                print('+' + str(stat_diff[j]), end='')
+                print(f'+{str(stat_diff[j])}', end='')
                 if j < 5: print(', ', end='')
             print(')')
             if self.evolution_chain.stage != 2:
@@ -110,9 +113,9 @@ class Pokemon:
                     move = Move(m['name'])
                     if len(self.current_moves) == 4:
                         replace = 5
-                        print(self.name + ' wants to learn ' + move.name + ', but it already knows 4 Moves:')
-                        print(self.current_moves[0].name + ', ' + self.current_moves[1].name + ', ' +
-                              self.current_moves[2].name + ', ' + self.current_moves[3].name)
+                        print(f'{self.name} wants to learn {move.name}, but it already knows 4 Moves:')
+                        print(f'{self.current_moves[0].name}, {self.current_moves[1].name}, '
+                              f'{self.current_moves[2].name}, {self.current_moves[3].name}')
                         while 1:
                             try:
                                 _in = input('Please specify which move shall be forgotten(1-4), '
@@ -127,14 +130,13 @@ class Pokemon:
                                 pass
                             print('Invalid Input!')
                         if replace is not None:
-                            print(self.name + ' forgot ' + self.current_moves[replace - 1].name + ' and learned ' +
-                                  move.name + '!')
+                            print(f'{self.name} forgot {self.current_moves[replace - 1].name} and learned {move.name}!')
                             self.current_moves[replace - 1] = move
                         else:
-                            print(self.name + ' did not learn ' + move.name + '.')
+                            print(f'{self.name} did not learn {move.name}.')
                     else:
                         self.current_moves.append(move)
-                        print(self.name + ' learned ' + move.name + '!')
+                        print(f'{self.name} learned {move.name}!')
 
     def set_ev(self, index: int, value: int):
         """Set the pokemon's evs and automatically recalculate stats."""
@@ -222,9 +224,9 @@ class Pokemon:
                 evolution.nature = self.nature
                 evolution.set_level(self.level)
                 self.__dict__ = evolution.__dict__
-                print('Congratulations! Your ' + old_name + ' evolved into ' + self.name + '!')
+                print(f'Congratulations! Your {old_name} evolved into {self.name}!')
                 return
-            print(self.name + ' did not evolve.')
+            print(f'{self.name} did not evolve.')
 
     def print(self):
         """Print formatted information about the Pokemon species on the screen."""
@@ -236,7 +238,7 @@ class Pokemon:
         for stat in self.base_stats:
             i = math.ceil(stat / 5)
             print('█' * i + '░' * (51 - i) + ' ' + str(stat))
-        print('Total: ' + str(sum(self.base_stats)))
+        print(f'Total: {str(sum(self.base_stats))}')
         print('_' * 56)
 
     # ========== FUNCTIONS FOR CALCULATING & GENERATING ================================================================
@@ -279,9 +281,9 @@ class Pokemon:
 
     def attack(self, other, move:  Move):
         """Perform an attack against a Pokemon 'other' using the Move 'move'."""
-        print(self.name + ' used ' + move.name + '!')
+        print(f'{self.name} used {move.name}!')
         if random.randint(1, 100) > move.accuracy:
-            print('The opposing ' + other.name + ' avoided the attack!')
+            print(f'The opposing {other.name} avoided the attack!')
             return
         damage = math.floor(self.level * 2 / 5) + 2
         damage *= move.power
@@ -310,9 +312,9 @@ class Pokemon:
         elif effectivity < 1:
             print('It\'s not very effective...')
         elif effectivity == 0:
-            print('It doesn\'t affect the opposing ' + other.name + '...')
+            print(f'It doesn\'t affect the opposing {other.name}...')
         damage = math.floor(damage)
         if damage > other.current_stats[0]: damage = other.current_stats[0]
-        print('The opposing ' + other.name + ' lost '
-              + str(math.floor((damage / other.stats[0]) * 100)) + '% (' + str(damage) + ' HP) of its health!')
+        print(f'The opposing {other.name} lost {str(math.floor((damage / other.stats[0]) * 100))}% ({str(damage)} HP) '
+              f'of it\'s health!')
         other.current_stats[0] -= damage

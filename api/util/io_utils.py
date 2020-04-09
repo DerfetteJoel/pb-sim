@@ -113,7 +113,7 @@ def load_all_pokemon():
             data[key['name']] = key
     except FileNotFoundError or UnboundLocalError:
         print('No custom pokemon found.')
-    print('Finished loading ' + str(len(data)) + ' pokemon.')
+    print(f'Finished loading {str(len(data))} pokemon.')
     return data
 
 
@@ -134,7 +134,7 @@ def load_all_moves():
             data[key['name']] = key
     except FileNotFoundError or UnboundLocalError:
         print('No custom moves found.')
-    print('Finished loading ' + str(len(data)) + ' moves.')
+    print(f'Finished loading {str(len(data))} moves.')
     return data
 
 
@@ -155,7 +155,7 @@ def load_all_evolution_chains():
             data[key['chain_id']] = key
     except FileNotFoundError or UnboundLocalError:
         print('No custom evolution chains found.')
-    print('Finished loading ' + str(len(data)) + ' evolution chains.')
+    print(f'Finished loading {str(len(data))} evolution chains.')
     return data
 
 
@@ -175,7 +175,7 @@ def delete_custom_pokemon():
     if count == 1:
         print('1 Pokemon has been deleted.')
     else:
-        print(str(count) + ' Pokemon have been deleted.')
+        print(f'{str(count)} Pokemon have been deleted.')
 
 
 def delete_custom_moves():
@@ -184,4 +184,4 @@ def delete_custom_moves():
     if count == 1:
         print('1 move has been deleted.')
     else:
-        print(str(count) + ' moves have been deleted.')
+        print(f'{str(count)} moves have been deleted.')
