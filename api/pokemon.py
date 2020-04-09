@@ -1,9 +1,6 @@
 import math
 import random
 
-import pokepy
-from beckett.exceptions import InvalidStatusCodeError
-
 from api.move import Move
 from api.nature import Nature, natures
 from api.type import Type

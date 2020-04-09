@@ -1,11 +1,8 @@
 import os
 import json
 
-from api import pokemon
-from api.evolution_chain import EvolutionChain
 from api.move import Move
 from api.pokemon import Pokemon
-from api.type import Type
 from api.util import utils
 
 root_dir = os.path.dirname(os.path.abspath(os.path.dirname('api' + os.path.sep)))

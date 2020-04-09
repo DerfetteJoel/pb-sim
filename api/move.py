@@ -1,7 +1,3 @@
-import pokepy
-
-from beckett.exceptions import InvalidStatusCodeError
-
 from api.type import Type
 from api.util import utils
 
