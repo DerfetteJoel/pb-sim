@@ -15,6 +15,7 @@ It is recommended that you start by loading all Pokemon data. Only three stateme
 1. `from api.util import io_utils`
 2. `from api import pokemon`
 3. `pokemon.pokemon_data = io_utils.load_all_pokemon()`
+
 If everything was set up correctly, you'll get feedback on how many pokemon were loaded.
 
 #### Example 1: Creating a Pokemon
