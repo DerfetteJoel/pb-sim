@@ -61,8 +61,8 @@ class FrmPokemonInfo(QWidget):
 
         self.lb_pokemon_name.setText(self.cb_pokemon.currentText().split('-')[0].title())
         self.lb_pokemon_name.setStyleSheet('font-size: 24pt; font: bold;')
+        self.lb_pokemon_name.setAlignment(Qt.AlignCenter)
         self.lb_pokemon_name.setMinimumWidth(150)
-        self.lb_pokemon_name.setMaximumWidth(150)
 
         pixmap = QPixmap(pk_path)
         self.lb_image.setPixmap(pixmap)
@@ -111,8 +111,8 @@ class FrmPokemonInfo(QWidget):
         self.grid.addWidget(self.cb_pokemon, 0, 2)
         self.grid.addWidget(self.lb_bt_desc, 0, 3)
         self.grid.addWidget(self.bt_add_pokemon, 0, 4)
-        self.grid.addWidget(self.lb_pokemon_name, 1, 0)
-        self.grid.addLayout(self.type_group, 1, 2)
+        self.grid.addWidget(self.lb_pokemon_name, 1, 2)
+        self.grid.addLayout(self.type_group, 1, 0)
         self.grid.addWidget(self.lb_move_desc, 1, 4)
         self.grid.addWidget(self.lb_image, 2, 0)
         self.grid.addLayout(self.stat_info_group, 2, 2)
