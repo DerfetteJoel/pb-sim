@@ -5,13 +5,17 @@ gathers all data from [PokeAPI](https://pokeapi.co/), but is
 flexible enough to allow the user to create new Pokemon, Moves
 and Types.
 
-**Note that this api is still in development, there my be major
-changes at any time!**
+**Note that while the api is more or less stable, the client is extremely experimental at this point.**
 
-A client is planned that makes using the api more user-friendly.
+If you want to use the client, you'll have to install PyQt5 via `pip install PyQt5`.
 
 ## Using the api
 You can use the api directly from the python shell.
+It is recommended that you start by loading all Pokemon data. Only three statements are necessary to do so:
+1. `from api.util import io_utils`
+2. `from api import pokemon`
+3. `pokemon.pokemon_data = io_utils.load_all_pokemon()`
+If everything was set up correctly, you'll get feedback on how many pokemon were loaded.
 
 #### Example 1: Creating a Pokemon
 1. Import `Pokemon` from `api.pokemon`.
