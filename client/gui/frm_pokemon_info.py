@@ -90,7 +90,7 @@ class FrmPokemonInfo(QWidget):
             self.stat_info_rows.append(QHBoxLayout())
             self.lb_stat_names.append(QLabel())
             self.lb_stat_names[i].setText(stat_names[i])
-            self.lb_stat_names[i].setFixedWidth(50)
+            self.lb_stat_names[i].setFixedWidth(70)
             self.lb_stat_names[i].setAlignment(Qt.AlignRight | Qt.AlignCenter)
             self.lb_stat_names[i].setStyleSheet('margin: 5px;')
 
@@ -101,7 +101,7 @@ class FrmPokemonInfo(QWidget):
             self.stat_bars[i].setValue(0)
 
             self.lb_stat_values.append(QLabel(''))
-            self.lb_stat_values[i].setFixedWidth(30)
+            self.lb_stat_values[i].setFixedWidth(40)
             self.lb_stat_values[i].setAlignment(Qt.AlignRight | Qt.AlignCenter)
             self.lb_stat_values[i].setUpdatesEnabled(True)
 
@@ -125,10 +125,9 @@ class FrmPokemonInfo(QWidget):
         self.table_moves.setCornerButtonEnabled(False)
         self.table_moves.setShowGrid(False)
         self.table_moves.horizontalHeader().hide()
-        self.table_moves.horizontalHeader().setSectionResizeMode(1, QHeaderView.Stretch)
         self.table_moves.verticalHeader().hide()
         self.table_moves.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.table_moves.setFixedWidth(290)
+        self.table_moves.setFixedWidth(340)
 
         self.cb_pokemon.currentIndexChanged.connect(lambda: self.on_pokemon_selected())
         self.bt_shiny.pressed.connect(lambda: self.on_shiny_toggle_pressed())
@@ -171,8 +170,8 @@ class FrmPokemonInfo(QWidget):
         self.table_moves.setRowCount(len(raw_data['moves']))
         self.table_moves.setColumnCount(3)
         self.table_moves.setColumnWidth(0, 70)
-        self.table_moves.setColumnWidth(1, 130)
-        self.table_moves.setColumnWidth(2, 70)
+        self.table_moves.setColumnWidth(1, 160)
+        self.table_moves.setColumnWidth(2, 90)
         for i in range(0, len(raw_data['moves'])):
             move = Move(raw_data['moves'][i]['name'])
             lb_name = QLabel(move.name)
