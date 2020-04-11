@@ -2,6 +2,7 @@ import os
 import ssl
 from urllib import request
 from urllib.error import HTTPError
+from operator import itemgetter
 
 from PyQt5 import QtCore
 from PyQt5.QtCore import *
@@ -172,8 +173,12 @@ class FrmPokemonInfo(QWidget):
         self.table_moves.setColumnWidth(0, 70)
         self.table_moves.setColumnWidth(1, 160)
         self.table_moves.setColumnWidth(2, 90)
+
+        move_data = raw_data['moves']
+        move_data.sort(key=itemgetter('level_learned_at'))
+        move_data.sort(key=itemgetter('learn_method'))
         for i in range(0, len(raw_data['moves'])):
-            move = Move(raw_data['moves'][i]['name'])
+            move = Move(move_data[i]['name'])
             lb_name = QLabel(move.name)
             lb_name.setStyleSheet('margin: 2px')
             lb_type = QLabel(move.type.name.capitalize())
