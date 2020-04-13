@@ -26,6 +26,12 @@ TYPE_COLORS = {
     '???': '#759f91'
 }
 
+DAMAGE_CATEGORY_COLORS = {
+    'physical': '#b93423',
+    'special': '#51586e',
+    'status': '#8c888c'
+}
+
 
 def log(msg: object):
     """If logging is enabled, prints a log message to the console."""

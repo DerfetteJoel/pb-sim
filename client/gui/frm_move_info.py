@@ -14,8 +14,10 @@ class FrmMoveInfo(QWidget):
         # COMPONENT LIST
         self.grid = QGridLayout()
         self.top_bar = QHBoxLayout()
+        self.info_bar = QHBoxLayout()
         self.lb_move_name = QLabel(self.move.name)
         self.lb_type = QLabel(self.move.type.name.capitalize())
+        self.lb_damage_class = QLabel(self.move.damage_class.capitalize())
         self.lb_info = QLabel(f'Power: {self.move.power}  |  '
                               f'Accuracy: {self.move.accuracy}  |  '
                               f'PP: {self.move.pp}  |  '
@@ -38,12 +40,26 @@ class FrmMoveInfo(QWidget):
         self.lb_type.setAlignment(Qt.AlignHCenter | Qt.AlignCenter)
         self.lb_type.setFixedSize(70, 20)
 
+        self.lb_info.setAlignment(Qt.AlignLeft)
+        self.lb_info.setFixedWidth(370)
+
+        self.lb_damage_class.setStyleSheet(
+                                f'color: white;'
+                                f'background-color: {utils.DAMAGE_CATEGORY_COLORS.get(self.move.damage_class)};'
+                                f'border-radius: 10px')
+        self.lb_damage_class.setAlignment(Qt.AlignHCenter | Qt.AlignCenter)
+        self.lb_damage_class.setFixedSize(70, 20)
+
+        self.info_bar.addWidget(self.lb_info)
+        self.info_bar.addWidget(self.lb_damage_class)
+
         self.top_bar.addWidget(self.lb_move_name)
+        self.top_bar.addWidget(self.lb_damage_class)
         self.top_bar.addWidget(self.lb_type)
 
         self.te_description.setReadOnly(True)
         self.te_description.setFixedHeight(120)
 
         self.grid.addLayout(self.top_bar, 0, 0)
-        self.grid.addWidget(self.lb_info, 1, 0)
+        self.grid.addLayout(self.info_bar, 1, 0)
         self.grid.addWidget(self.te_description, 2, 0)
