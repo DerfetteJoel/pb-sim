@@ -29,28 +29,22 @@ def save_custom_pokemon(pkmn: Pokemon):
         .lower() \
         .replace(' ', '-')
     index = pkmn.id if pkmn.id != -1 else utils.TOTAL_POKEMON_COUNT + custom_pokemon_count()
-    type_1 = pkmn.types[0].name
-    type_2 = 'none'
-    if len(pkmn.types) > 1:
-        type_2 = pkmn.types[1].name
-    ability_1 = 'none'
-    ability_2 = 'none',
-    ability_3 = 'none'
-    try:
-        ability_1 = pkmn.abilities[0]
-        ability_2 = pkmn.abilities[1]
-        ability_3 = pkmn.abilities[2]
-    except IndexError:
-        pass
+    types = []
+    for t in pkmn.types:
+        types.append(t.name)
     custom_pokemon_data['pokemon'].append({
         'name': unformatted_name,
         'id': index,
-        'types': {'type_1': type_1, 'type_2': type_2},
-        'abilities': {'ability_1': ability_1, 'ability_2': ability_2, 'ability_3': ability_3},
+        'types': types,
+        'abilities': pkmn.abilities,
         'base_stats': pkmn.base_stats,
+        'base_xp': pkmn.base_experience,
         'evolution_chain_id': pkmn.evolution_chain.chain_id,
         'growth_rate': pkmn.growth_rate,
-        'base_xp': pkmn.base_experience,
+        'base_happiness': pkmn.base_happiness,
+        'capture_rate': pkmn.capture_rate,
+        'gender_rate': pkmn.gender_rate,
+        'hatch_counter': pkmn.hatch_counter,
         'moves': pkmn.moves
     })
     with open(os.path.join(custom_dir, 'pokemon.json'), 'w') as file:
@@ -74,7 +68,8 @@ def save_custom_move(move: Move):
         'effect_chance': move.effect_chance,
         'priority': move.priority,
         'damage_class': move.damage_class,
-        'type': move.type.name
+        'type': move.type.name,
+        'description': move.description
     })
     with open(os.path.join(custom_dir, 'moves.json'), 'w') as file:
         json.dump(custom_move_data, file, indent=2)

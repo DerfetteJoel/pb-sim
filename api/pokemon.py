@@ -27,12 +27,9 @@ class Pokemon:
             self.id = raw['id']
             self.name = raw['name'].replace('-', ' ').title()
             self.base_stats = raw['base_stats']
-            self.types.append(Type(raw['types']['type_1']))
-            if raw['types']['type_2'] != 'none':
-                self.types.append(Type(raw['types']['type_2']))
-            for key in raw['abilities']:
-                if raw['abilities'][key] != 'none':
-                    self.abilities.append(raw['abilities'][key])
+            for t in raw['types']:
+                self.types.append(Type(t))
+            self.abilities = raw['abilities']
             self.base_experience = raw['base_xp']
             self.growth_rate = raw['growth_rate']
             self.moves = raw['moves']
@@ -42,6 +39,10 @@ class Pokemon:
                 self.evolves_to = self.evolution_chain.stage_1_evolutions
             elif self.evolution_chain.stage == 1:
                 self.evolves_to = self.evolution_chain.stage_2_evolutions
+            self.base_happiness = raw['base_happiness']
+            self.capture_rate = raw['capture_rate']
+            self.gender_rate = raw['gender_rate']
+            self.hatch_counter = raw['hatch_counter']
         else:
             # If no pokemon in the database matched the request, these values can
             # be set manually or automatically using the constructor parameters.
@@ -56,6 +57,10 @@ class Pokemon:
             self.growth_rate = 'slow'
             self.moves = []
             self.evolution_chain = EvolutionChain(-1)
+            self.base_happiness = 70
+            self.capture_rate = 45
+            self.gender_rate = 4
+            self.hatch_counter = 20
         # These are values that can be different for each pokemon of a species
         self.level = 1
         self.ivs = [0, 0, 0, 0, 0, 0]

@@ -20,8 +20,8 @@ class EvolutionChain:
         """
         self.chain_id = chain_id
         self.base = None
-        self.stage_1_evolutions = {}
-        self.stage_2_evolutions = {}
+        self.stage_1_evolutions = []
+        self.stage_2_evolutions = []
         raw = evolution_chain_data.get(chain_id)
         if raw is not None:
             self.base = raw['base']
@@ -36,7 +36,9 @@ class EvolutionChain:
         """
         if self.base == name:
             self.stage = 0
-        elif name in self.stage_1_evolutions:
-            self.stage = 1
-        elif name in self.stage_2_evolutions:
-            self.stage = 2
+        for e in self.stage_1_evolutions:
+            if name in list(e.values()):
+                self.stage = 1
+        for e in self.stage_2_evolutions:
+            if name in list(e.values()):
+                self.stage = 2

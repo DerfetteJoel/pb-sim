@@ -24,6 +24,7 @@ class Move:
             self.pp = raw['pp']
             self.effect_chance = raw['effect_chance']
             self.priority = raw['priority']
+            self.description = raw['description'].format(effect_chance=self.effect_chance)
         else:
             # If no move in the database matched the request, these values have to be set manually.
             # This gives the user the ability to create completely new moves.
@@ -37,6 +38,7 @@ class Move:
             self.priority = 0
             self.damage_class = 'physical'
             self.type = Type('normal')
+            self.description = ''
 
         self.current_pp = self.pp
 

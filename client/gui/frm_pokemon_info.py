@@ -152,13 +152,12 @@ class FrmPokemonInfo(QWidget):
         self.is_image_shiny = not self.is_image_shiny
         self.on_shiny_toggle_pressed()
         self.lb_pokemon_name.setText(self.cb_pokemon.currentText().split('-')[0].title())
-        self.type_1.setText(raw_data['types']['type_1'].capitalize())
+        self.type_1.setText(raw_data['types'][0].capitalize())
         self.type_1.setStyleSheet(f'color: white;'
                                   f'background-color: {utils.TYPE_COLORS.get(self.type_1.text().lower())};'
                                   f'border-radius: 10px')
-        type_2_data = raw_data['types']['type_2']
-        if type_2_data != 'none':
-            self.type_2.setText(type_2_data.capitalize())
+        if len(raw_data['types']) > 1:
+            self.type_2.setText(raw_data['types'][1].capitalize())
         else:
             self.type_2.setText('')
         self.type_2.setStyleSheet(f'color: white;'
@@ -175,8 +174,6 @@ class FrmPokemonInfo(QWidget):
         self.table_moves.setColumnWidth(2, 90)
 
         move_data = raw_data['moves']
-        move_data.sort(key=itemgetter('level_learned_at'))
-        move_data.sort(key=itemgetter('learn_method'))
         for i in range(0, len(raw_data['moves'])):
             move = Move(move_data[i]['name'])
             lb_name = QLabel(move.name)

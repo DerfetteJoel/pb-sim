@@ -1,4 +1,4 @@
-enable_log = 0
+enable_log = False
 
 TOTAL_POKEMON_COUNT = 807
 TOTAL_MOVES_COUNT = 728
@@ -27,7 +27,7 @@ TYPE_COLORS = {
 }
 
 
-def log(msg: object) -> object:
+def log(msg: object):
     """If logging is enabled, prints a log message to the console."""
     if enable_log:
         print(f'[LOG] {msg}')
