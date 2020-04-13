@@ -215,4 +215,5 @@ class FrmPokemonInfo(QWidget):
             pixmap.loadFromData(img_data)
             self.lb_image.setPixmap(pixmap.scaledToWidth(96))
         except HTTPError:
-            pixmap.load(pk_path)
+            pixmap = QPixmap(pk_path)
+            self.lb_image.setPixmap(pixmap.scaledToWidth(96))
