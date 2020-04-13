@@ -1,6 +1,7 @@
 from operator import itemgetter
 
 import pokepy
+from beckett.exceptions import InvalidStatusCodeError
 
 from api.util import utils
 
@@ -8,7 +9,10 @@ from api.util import utils
 def get_pokemon(pokemon_name: str):
     """Returns a dictionary containing all necessary data about the pokemon"""
     client = pokepy.V2Client()
-    raw = client.get_pokemon(pokemon_name)
+    try:
+        raw = client.get_pokemon(pokemon_name)
+    except InvalidStatusCodeError:
+        return
     types = []
     for i in range(len(raw.types) - 1, -1, -1):
         types.append(raw.types[i].type.name)
@@ -43,14 +47,17 @@ def get_pokemon(pokemon_name: str):
         'hatch_counter': raw_species.hatch_counter,
         'moves': move_list
     }
-    utils.log(f'{raw.name} was found in the database!')
+    print(f'{raw.name} was found in the database!')
     return poke_data
 
 
 def get_move(move_name: str):
     """Returns a dictionary containing all necessary data about the move"""
     client = pokepy.V2Client()
-    raw = client.get_move(move_name)
+    try:
+        raw = client.get_move(move_name)
+    except InvalidStatusCodeError:
+        return
     move_data = {
         'name': raw.name,
         'id': raw.id,
@@ -63,14 +70,17 @@ def get_move(move_name: str):
         'type': raw.type.name,
         'description': raw.effect_entries[0].effect
     }
-    utils.log(f'{raw.name} was found in the database!')
+    print(f'{raw.name} was found in the database!')
     return move_data
 
 
 def get_evolution_chain(chain_id: int):
     """Returns a dictionary containing all necessary data about the evolution chain"""
     client = pokepy.V2Client()
-    raw = client.get_evolution_chain(chain_id)
+    try:
+        raw = client.get_evolution_chain(chain_id)
+    except InvalidStatusCodeError:
+        return
     stage_1_evolutions = []
     for key in raw.chain.evolves_to:
         try:
@@ -104,5 +114,5 @@ def get_evolution_chain(chain_id: int):
         'stage_1_evolutions': stage_1_evolutions,
         'stage_2_evolutions': stage_2_evolutions
     }
-    utils.log(f'Evolution chain {chain_id} was found in the database!')
+    print(f'Evolution chain {chain_id} was found in the database!')
     return evo_data

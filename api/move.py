@@ -1,5 +1,5 @@
 from api.type import Type
-from api.util import utils
+from api.util import utils, dl_utils
 
 move_data = {}
 """This can be filled with moves from the outside, for example using IOUtils.load_all_moves()"""
@@ -14,6 +14,8 @@ class Move:
         If no matching move could be found, a new move is created.
         """
         raw = move_data.get(name)
+        if raw is None:  # Attempt download
+            raw = dl_utils.get_move(name)
         if raw is not None:
             self.damage_class = raw['damage_class']
             self.type = Type(raw['type'])

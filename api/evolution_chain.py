@@ -1,3 +1,5 @@
+from api.util import dl_utils
+
 evolution_chain_data = {}
 """This can be filled with evolution chains from the outside, for example using IOUtils.load_all_evolution_chains()"""
 
@@ -23,6 +25,8 @@ class EvolutionChain:
         self.stage_1_evolutions = []
         self.stage_2_evolutions = []
         raw = evolution_chain_data.get(chain_id)
+        if raw is None:
+            raw = dl_utils.get_evolution_chain(chain_id)
         if raw is not None:
             self.base = raw['base']
             self.stage_1_evolutions = raw['stage_1_evolutions']

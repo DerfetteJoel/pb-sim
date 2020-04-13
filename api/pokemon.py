@@ -5,7 +5,7 @@ from api.move import Move
 from api.nature import Nature, natures
 from api.type import Type
 from api.evolution_chain import EvolutionChain
-from api.util import utils
+from api.util import utils, dl_utils
 
 pokemon_data = {}
 """This can be filled with pokemon from the outside, for example using IOUtils.load_all_pokemon()"""
@@ -20,6 +20,8 @@ class Pokemon:
         If no matching Pokemon could be found, a new Pokemon is created.
         """
         raw = pokemon_data.get(name.replace(' ', '-').lower())
+        if raw is None:  # Attempt download
+            raw = dl_utils.get_pokemon(name)
         self.evolves_to = {}
         self.types = []
         self.abilities = []
