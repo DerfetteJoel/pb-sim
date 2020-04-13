@@ -12,6 +12,7 @@ from PyQt5.QtGui import *
 from api import pokemon
 from api.move import Move
 from api.util import io_utils, utils
+from client.gui.frm_move_info import FrmMoveInfo
 
 pk_path = os.path.join(io_utils.root_dir, 'data', 'sprites', '0.png')
 
@@ -23,6 +24,7 @@ def launch():
     app.setStyle('Fusion')
     app.setFont(QFont('Roboto', 14))
     frm = FrmPokemonInfo()
+    frm.show()
     app.exec()
 
 
@@ -34,7 +36,6 @@ class FrmPokemonInfo(QWidget):
         self.is_image_shiny = False
 
         # COMPONENT LIST
-        self.window = QWidget()
         self.grid = QGridLayout()
         self.lb_cb_desc = QLabel('Select a Pokemon: ')
         self.lb_bt_desc = QLabel('or')
@@ -54,13 +55,13 @@ class FrmPokemonInfo(QWidget):
         self.type_1 = QLabel()
         self.type_2 = QLabel()
         self.table_moves = QTableWidget()
+        self.move_info = None
         # END OF COMPONENT LIST
 
         self.init_ui()
-        self.window.show()
 
     def init_ui(self):
-        self.window.setLayout(self.grid)
+        self.setLayout(self.grid)
 
         self.grid.setVerticalSpacing(20)
 
@@ -132,6 +133,7 @@ class FrmPokemonInfo(QWidget):
 
         self.cb_pokemon.currentIndexChanged.connect(lambda: self.on_pokemon_selected())
         self.bt_shiny.pressed.connect(lambda: self.on_shiny_toggle_pressed())
+        self.table_moves.doubleClicked.connect(lambda: self.onMoveDoubleClicked(self.table_moves.currentRow()))
 
         self.grid.addWidget(self.lb_cb_desc, 0, 0)
         self.grid.addWidget(self.cb_pokemon, 0, 2)
@@ -172,7 +174,6 @@ class FrmPokemonInfo(QWidget):
         self.table_moves.setColumnWidth(0, 70)
         self.table_moves.setColumnWidth(1, 160)
         self.table_moves.setColumnWidth(2, 90)
-
         move_data = raw_data['moves']
         for i in range(0, len(raw_data['moves'])):
             move = Move(move_data[i]['name'])
@@ -214,3 +215,12 @@ class FrmPokemonInfo(QWidget):
         except HTTPError:
             pixmap = QPixmap(pk_path)
             self.lb_image.setPixmap(pixmap.scaledToWidth(96))
+
+    def onMoveDoubleClicked(self, selected_row: int):
+        try:
+            raw_data = self.pokemon_data[self.cb_pokemon.currentText()]
+        except KeyError:
+            return
+        selected_move_name = raw_data['moves'][selected_row]['name']
+        self.move_info = FrmMoveInfo(selected_move_name)
+        self.move_info.show()
