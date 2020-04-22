@@ -4,6 +4,7 @@ from PyQt5.QtGui import *
 
 from api.move import Move
 from api.util import utils
+from client.util import gui_utils
 
 
 class FrmMoveInfo(QWidget):
@@ -35,7 +36,7 @@ class FrmMoveInfo(QWidget):
         self.lb_move_name.setFixedWidth(300)
 
         self.lb_type.setStyleSheet(f'color: white;'
-                                   f'background-color: {utils.TYPE_COLORS.get(self.move.type.name.lower())};'
+                                   f'background-color: {gui_utils.TYPE_COLORS.get(self.move.type.name.lower())};'
                                    f'border-radius: 10px;')
         self.lb_type.setAlignment(Qt.AlignHCenter | Qt.AlignCenter)
         self.lb_type.setFixedSize(70, 20)
@@ -45,7 +46,7 @@ class FrmMoveInfo(QWidget):
 
         self.lb_damage_class.setStyleSheet(
                                 f'color: white;'
-                                f'background-color: {utils.DAMAGE_CATEGORY_COLORS.get(self.move.damage_class)};'
+                                f'background-color: {gui_utils.DAMAGE_CATEGORY_COLORS.get(self.move.damage_class)};'
                                 f'border-radius: 10px')
         self.lb_damage_class.setAlignment(Qt.AlignHCenter | Qt.AlignCenter)
         self.lb_damage_class.setFixedSize(70, 20)

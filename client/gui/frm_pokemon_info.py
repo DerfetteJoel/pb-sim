@@ -2,9 +2,7 @@ import os
 import ssl
 from urllib import request
 from urllib.error import HTTPError
-from operator import itemgetter
 
-from PyQt5 import QtCore
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
@@ -13,6 +11,7 @@ from api import pokemon
 from api.move import Move
 from api.util import io_utils, utils
 from client.gui.frm_move_info import FrmMoveInfo
+from client.util import gui_utils
 
 pk_path = os.path.join(io_utils.root_dir, 'data', 'sprites', '0.png')
 
@@ -22,6 +21,15 @@ def launch():
     QFontDatabase.addApplicationFont(os.path.join(io_utils.root_dir, 'data', 'assets', 'fonts', 'Roboto-Regular.ttf'))
     QFontDatabase.addApplicationFont(os.path.join(io_utils.root_dir, 'data', 'assets', 'fonts', 'Roboto-Bold.ttf'))
     app.setStyle('Fusion')
+    app.setStyleSheet('QProgressBar {'
+                      'border: 1px solid gray;'
+                      'border-radius: 5px;'
+                      'margin: 1px;'
+                      '}'
+                      'QProgressBar::chunk {'
+                      'background-color: #81d442;'
+                      'border-radius: 5px;'
+                      '}')
     app.setFont(QFont('Roboto', 14))
     frm = FrmPokemonInfo()
     frm.show()
@@ -65,7 +73,7 @@ class FrmPokemonInfo(QWidget):
 
         self.grid.setVerticalSpacing(20)
 
-        self.lb_move_desc.setAlignment(Qt.AlignBottom |Qt.AlignLeft)
+        self.lb_move_desc.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
 
         self.bt_add_pokemon.setEnabled(False)
 
@@ -156,19 +164,24 @@ class FrmPokemonInfo(QWidget):
         self.lb_pokemon_name.setText(self.cb_pokemon.currentText().split('-')[0].title())
         self.type_1.setText(raw_data['types'][0].capitalize())
         self.type_1.setStyleSheet(f'color: white;'
-                                  f'background-color: {utils.TYPE_COLORS.get(self.type_1.text().lower())};'
+                                  f'background-color: {gui_utils.TYPE_COLORS.get(self.type_1.text().lower())};'
                                   f'border-radius: 10px')
         if len(raw_data['types']) > 1:
             self.type_2.setText(raw_data['types'][1].capitalize())
         else:
             self.type_2.setText('')
         self.type_2.setStyleSheet(f'color: white;'
-                                  f'background-color: {utils.TYPE_COLORS.get(self.type_2.text().lower())};'
+                                  f'background-color: {gui_utils.TYPE_COLORS.get(self.type_2.text().lower())};'
                                   f'border-radius: 10px')
         for i in range(0, 6):
             self.stat_bars[i].setValue(raw_data['base_stats'][i])
+            self.stat_bars[i].setStyleSheet('::chunk {'
+                                            f'background-color: {gui_utils.get_stat_color(raw_data["base_stats"][i])};'
+                                            'border-radius: 5px;'
+                                            '}')
             self.lb_stat_values[i].setText(str(raw_data['base_stats'][i]))
         self.table_moves.clear()
+        self.table_moves.setVisible(False)
         self.table_moves.setRowCount(len(raw_data['moves']))
         self.table_moves.setColumnCount(3)
         self.table_moves.setColumnWidth(0, 70)
@@ -181,7 +194,7 @@ class FrmPokemonInfo(QWidget):
             lb_name.setStyleSheet('margin: 2px')
             lb_type = QLabel(move.type.name.capitalize())
             lb_type.setStyleSheet(f'color: white;'
-                                  f'background-color: {utils.TYPE_COLORS.get(move.type.name.lower())};'
+                                  f'background-color: {gui_utils.TYPE_COLORS.get(move.type.name.lower())};'
                                   f'border-radius: 10px;'
                                   f'margin: 2px;')
             lb_type.setAlignment(Qt.AlignHCenter | Qt.AlignCenter)
@@ -193,6 +206,7 @@ class FrmPokemonInfo(QWidget):
             self.table_moves.setCellWidget(i, 0, lb_type)
             self.table_moves.setCellWidget(i, 1, lb_name)
             self.table_moves.setCellWidget(i, 2, lb_learn_method)
+        self.table_moves.setVisible(True)
 
     def on_shiny_toggle_pressed(self):
         try:
@@ -201,7 +215,7 @@ class FrmPokemonInfo(QWidget):
             return
         if not self.is_image_shiny:
             url = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/' + \
-                   str(raw_data['id']) + '.png'
+                  str(raw_data['id']) + '.png'
         else:
             url = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + \
                   str(raw_data['id']) + '.png'
