@@ -40,6 +40,7 @@ class FrmPokemonInfo(QWidget):
     def __init__(self):
         super().__init__()
         self.pokemon_data = pokemon.pokemon_data
+        self.selected_pokemon = ""
 
         self.is_image_shiny = False
 
@@ -159,6 +160,7 @@ class FrmPokemonInfo(QWidget):
             raw_data = self.pokemon_data[self.cb_pokemon.currentText()]
         except KeyError:
             return
+        self.selected_pokemon = raw_data['name']
         self.is_image_shiny = not self.is_image_shiny
         self.on_shiny_toggle_pressed()
         self.lb_pokemon_name.setText(self.cb_pokemon.currentText().split('-')[0].title())
@@ -232,7 +234,7 @@ class FrmPokemonInfo(QWidget):
 
     def onMoveDoubleClicked(self, selected_row: int):
         try:
-            raw_data = self.pokemon_data[self.cb_pokemon.currentText()]
+            raw_data = self.pokemon_data[self.selected_pokemon]
         except KeyError:
             return
         selected_move_name = raw_data['moves'][selected_row]['name']
